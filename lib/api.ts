@@ -1,25 +1,20 @@
-// Support both variable names — NEXT_PUBLIC_MEMODROOM_API_URL takes priority
-const API_URL = (
-  process.env.NEXT_PUBLIC_MEMODROOM_API_URL ||
-  process.env.NEXT_PUBLIC_API_URL ||
-  ""
-).replace(/\/$/, ""); // strip any trailing slash
-
-export interface ApiResponse<T = Record<string, unknown>> {
-  success: boolean;
-  error?: string;
-  data?: T;
-}
+/**
+ * All API calls go through /api/proxy/* which is a server-side Next.js route.
+ * This avoids CORS entirely — the browser talks to its own origin and
+ * Next.js forwards server-to-server to the real backend.
+ */
+const API_BASE = "/api/proxy";
 
 async function request<T>(
   path: string,
   options?: RequestInit
 ): Promise<{ success: boolean; error?: string } & T> {
-  const url = `${API_URL}${path}`;
+  const url = `${API_BASE}${path}`;
   try {
     const res = await fetch(url, options);
     const json = await res.json();
 
+    // 409 = step already completed — treat as success and advance
     if (res.status === 409) {
       return { success: true, ...json };
     }
@@ -49,6 +44,7 @@ export async function uploadPhotos(orderId: string, files: File[]) {
     {
       method: "POST",
       body: formData,
+      // No Content-Type header — browser sets multipart/form-data + boundary
     }
   );
 }
