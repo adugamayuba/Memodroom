@@ -94,10 +94,10 @@ export function Step2({ onNext, onBack, addToast }: Step2Props) {
   return (
     <div className="animate-slide-up">
       <div className="mb-10">
-        <h2 className="font-serif text-3xl font-normal text-[#f5f0e8] mb-2">
+        <h2 className="font-serif text-3xl font-normal text-gray-900 mb-2">
           Upload your photo
         </h2>
-        <p className="text-sm text-zinc-500">
+        <p className="text-sm text-gray-500">
           Add 1–3 photos. The first one will be used to build your AI avatar.
         </p>
       </div>
@@ -110,10 +110,10 @@ export function Step2({ onNext, onBack, addToast }: Step2Props) {
         onClick={() => files.length < MAX_FILES && inputRef.current?.click()}
         className={`relative border-2 border-dashed rounded-2xl p-10 text-center transition-all cursor-pointer ${
           isDragging
-            ? "border-[#d9a016]/60 bg-[#d9a016]/5"
+            ? "border-[#25D366] bg-[#25D366]/5"
             : files.length >= MAX_FILES
-            ? "border-white/10 cursor-not-allowed opacity-50"
-            : "border-white/15 hover:border-white/25 hover:bg-white/2"
+            ? "border-gray-200 cursor-not-allowed opacity-50"
+            : "border-gray-200 hover:border-[#25D366]/50 hover:bg-gray-50"
         }`}
       >
         <input
@@ -125,19 +125,19 @@ export function Step2({ onNext, onBack, addToast }: Step2Props) {
           onChange={(e) => e.target.files && addFiles(e.target.files)}
         />
         <div className="flex flex-col items-center gap-3">
-          <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-zinc-400">
+          <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-gray-400">
               <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
             </svg>
           </div>
           <div>
-            <p className="text-sm text-zinc-300 font-medium">
+            <p className="text-sm text-gray-700 font-medium">
               Drag and drop, or click to browse
             </p>
-            <p className="text-xs text-zinc-600 mt-1">JPEG, PNG, WebP · Up to 3 photos</p>
+            <p className="text-xs text-gray-400 mt-1">JPEG, PNG, WebP · Up to 3 photos</p>
           </div>
           {files.length > 0 && (
-            <span className="text-xs font-medium text-[#d9a016] bg-[#d9a016]/10 px-3 py-1 rounded-full">
+            <span className="text-xs font-semibold text-[#25D366] bg-[#25D366]/10 px-3 py-1 rounded-full">
               {files.length}/{MAX_FILES} selected
             </span>
           )}
@@ -148,7 +148,7 @@ export function Step2({ onNext, onBack, addToast }: Step2Props) {
       {fileErrors.length > 0 && (
         <div className="mt-3 space-y-1">
           {fileErrors.map((err, i) => (
-            <p key={i} className="text-xs text-red-400">{err}</p>
+            <p key={i} className="text-xs text-red-500">{err}</p>
           ))}
         </div>
       )}
@@ -157,7 +157,7 @@ export function Step2({ onNext, onBack, addToast }: Step2Props) {
       {previews.length > 0 && (
         <div className="mt-6 grid grid-cols-3 gap-4">
           {previews.map((src, i) => (
-            <div key={i} className="relative group rounded-xl overflow-hidden aspect-square bg-zinc-900">
+            <div key={i} className="relative group rounded-xl overflow-hidden aspect-square bg-gray-100 border border-gray-200">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={src}
@@ -165,15 +165,15 @@ export function Step2({ onNext, onBack, addToast }: Step2Props) {
                 className="w-full h-full object-cover"
               />
               {i === 0 && (
-                <div className="absolute bottom-0 left-0 right-0 bg-black/70 backdrop-blur-sm px-2 py-1.5">
-                  <p className="text-[10px] text-[#d9a016] font-medium text-center leading-tight">
+                <div className="absolute bottom-0 left-0 right-0 bg-white/90 backdrop-blur-sm px-2 py-1.5">
+                  <p className="text-[10px] text-[#25D366] font-semibold text-center leading-tight">
                     Main photo — AI avatar
                   </p>
                 </div>
               )}
               <button
                 onClick={(e) => { e.stopPropagation(); removeFile(i); }}
-                className="absolute top-2 right-2 w-6 h-6 rounded-full bg-black/80 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-red-600"
+                className="absolute top-2 right-2 w-6 h-6 rounded-full bg-white text-gray-600 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-red-500 hover:text-white shadow-sm"
               >
                 <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor">
                   <path d="M1 1l8 8M9 1L1 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
@@ -185,16 +185,16 @@ export function Step2({ onNext, onBack, addToast }: Step2Props) {
       )}
 
       {/* Tip */}
-      <div className="mt-6 p-4 bg-zinc-900/40 border border-white/5 rounded-xl">
-        <p className="text-xs text-zinc-500 leading-relaxed">
+      <div className="mt-6 p-4 bg-gray-50 border border-gray-100 rounded-xl">
+        <p className="text-xs text-gray-500 leading-relaxed">
           Use a clear, front-facing photo in good lighting. The AI performs best with a single person visible and no heavy shadows or sunglasses.
         </p>
       </div>
 
       {/* Upload progress */}
       {uploadProgress && (
-        <div className="mt-4 flex items-center gap-3 text-sm text-zinc-400">
-          <span className="w-4 h-4 border-2 border-zinc-600 border-t-[#d9a016] rounded-full animate-spin" />
+        <div className="mt-4 flex items-center gap-3 text-sm text-gray-500">
+          <span className="w-4 h-4 border-2 border-gray-200 border-t-[#25D366] rounded-full animate-spin" />
           Uploading your photos...
         </div>
       )}
@@ -203,18 +203,18 @@ export function Step2({ onNext, onBack, addToast }: Step2Props) {
       <div className="mt-8 flex items-center gap-4">
         <button
           onClick={onBack}
-          className="px-6 py-3 border border-white/10 rounded-xl text-sm text-zinc-400 hover:border-white/20 hover:text-zinc-300 transition-all"
+          className="px-6 py-3 border border-gray-200 rounded-xl text-sm text-gray-500 hover:border-gray-300 hover:text-gray-700 transition-all"
         >
           Back
         </button>
         <button
           onClick={handleNext}
           disabled={state.isLoading || files.length === 0}
-          className="flex items-center gap-2 px-8 py-3 bg-[#d9a016] text-black font-semibold rounded-xl hover:bg-[#ecb82a] transition-all disabled:opacity-40 disabled:cursor-not-allowed"
+          className="flex items-center gap-2 px-8 py-3 bg-[#25D366] text-white font-semibold rounded-xl hover:bg-[#1db954] transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-md shadow-[#25D366]/20"
         >
           {state.isLoading ? (
             <>
-              <span className="w-4 h-4 border-2 border-black/30 border-t-black rounded-full animate-spin" />
+              <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
               Uploading...
             </>
           ) : (

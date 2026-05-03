@@ -53,17 +53,17 @@ export function Step1({ onNext, addToast }: Step1Props) {
   return (
     <div className="animate-slide-up">
       <div className="mb-10">
-        <h2 className="font-serif text-3xl font-normal text-[#f5f0e8] mb-2">
+        <h2 className="font-serif text-3xl font-normal text-gray-900 mb-2">
           Who is this from?
         </h2>
-        <p className="text-sm text-zinc-500">
+        <p className="text-sm text-gray-500">
           We&apos;ll use your name in the video and send you the result.
         </p>
       </div>
 
       <div className="space-y-6 max-w-md">
         <div>
-          <label className="block text-sm font-medium text-zinc-300 mb-2">
+          <label className="block text-sm font-medium text-gray-700 mb-2">
             Your name
           </label>
           <input
@@ -74,18 +74,18 @@ export function Step1({ onNext, addToast }: Step1Props) {
               if (errors.name) setErrors((prev) => ({ ...prev, name: undefined }));
             }}
             placeholder="Jane"
-            className={`w-full bg-zinc-900/60 border rounded-xl px-4 py-3 text-[#f5f0e8] placeholder-zinc-600 outline-none transition-all focus:border-[#d9a016]/60 focus:bg-zinc-900 ${
-              errors.name ? "border-red-500/60" : "border-white/10"
+            className={`w-full bg-gray-50 border rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 outline-none transition-all focus:border-[#25D366] focus:ring-2 focus:ring-[#25D366]/10 focus:bg-white ${
+              errors.name ? "border-red-400" : "border-gray-200"
             }`}
             autoFocus
           />
           {errors.name && (
-            <p className="mt-1.5 text-xs text-red-400">{errors.name}</p>
+            <p className="mt-1.5 text-xs text-red-500">{errors.name}</p>
           )}
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-zinc-300 mb-2">
+          <label className="block text-sm font-medium text-gray-700 mb-2">
             Your email
           </label>
           <input
@@ -96,14 +96,14 @@ export function Step1({ onNext, addToast }: Step1Props) {
               if (errors.email) setErrors((prev) => ({ ...prev, email: undefined }));
             }}
             placeholder="jane@example.com"
-            className={`w-full bg-zinc-900/60 border rounded-xl px-4 py-3 text-[#f5f0e8] placeholder-zinc-600 outline-none transition-all focus:border-[#d9a016]/60 focus:bg-zinc-900 ${
-              errors.email ? "border-red-500/60" : "border-white/10"
+            className={`w-full bg-gray-50 border rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 outline-none transition-all focus:border-[#25D366] focus:ring-2 focus:ring-[#25D366]/10 focus:bg-white ${
+              errors.email ? "border-red-400" : "border-gray-200"
             }`}
           />
           {errors.email && (
-            <p className="mt-1.5 text-xs text-red-400">{errors.email}</p>
+            <p className="mt-1.5 text-xs text-red-500">{errors.email}</p>
           )}
-          <p className="mt-1.5 text-xs text-zinc-600">
+          <p className="mt-1.5 text-xs text-gray-400">
             We&apos;ll send your finished video here.
           </p>
         </div>
@@ -111,11 +111,11 @@ export function Step1({ onNext, addToast }: Step1Props) {
         <button
           onClick={handleNext}
           disabled={state.isLoading}
-          className="w-full md:w-auto flex items-center justify-center gap-2 px-8 py-3.5 bg-[#d9a016] text-black font-semibold rounded-xl hover:bg-[#ecb82a] transition-all disabled:opacity-50 disabled:cursor-not-allowed mt-2"
+          className="w-full md:w-auto flex items-center justify-center gap-2 px-8 py-3.5 bg-[#25D366] text-white font-semibold rounded-xl hover:bg-[#1db954] transition-all disabled:opacity-50 disabled:cursor-not-allowed mt-2 shadow-md shadow-[#25D366]/20"
         >
           {state.isLoading ? (
             <>
-              <span className="w-4 h-4 border-2 border-black/30 border-t-black rounded-full animate-spin" />
+              <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
               Setting up...
             </>
           ) : (

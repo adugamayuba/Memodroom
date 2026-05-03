@@ -118,21 +118,21 @@ export function Step4({ onNext, onBack, addToast }: Step4Props) {
     <div className="animate-slide-up">
       <div className="mb-3">
         <div className="flex items-center justify-between mb-2">
-          <h2 className="font-serif text-3xl font-normal text-[#f5f0e8]">
+          <h2 className="font-serif text-3xl font-normal text-gray-900">
             Add your voice
           </h2>
-          <span className="text-xs text-zinc-500 bg-zinc-900 border border-white/10 px-3 py-1 rounded-full">
+          <span className="text-xs text-gray-500 bg-gray-100 border border-gray-200 px-3 py-1 rounded-full">
             Optional
           </span>
         </div>
-        <p className="text-sm text-zinc-500">
+        <p className="text-sm text-gray-500">
           Record a 5–10 second clip in a quiet room. The AI just needs to hear your voice — say anything.
         </p>
       </div>
 
       <button
         onClick={handleSkip}
-        className="text-xs text-zinc-500 hover:text-zinc-300 transition-colors mb-8 flex items-center gap-1.5"
+        className="text-xs text-gray-400 hover:text-gray-600 transition-colors mb-8 flex items-center gap-1.5"
       >
         Skip this step
         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -141,22 +141,22 @@ export function Step4({ onNext, onBack, addToast }: Step4Props) {
       </button>
 
       {mode === "done" ? (
-        <div className="p-6 bg-emerald-950/40 border border-emerald-500/20 rounded-2xl flex items-center gap-4">
-          <div className="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#10b981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <div className="p-6 bg-green-50 border border-[#25D366]/25 rounded-2xl flex items-center gap-4">
+          <div className="w-10 h-10 rounded-full bg-[#25D366]/15 flex items-center justify-center shrink-0">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#25D366" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M3 9l5 5 7-9" />
             </svg>
           </div>
           <div>
-            <p className="text-sm font-medium text-emerald-400">Voice uploaded</p>
-            <p className="text-xs text-zinc-500 mt-0.5">Your photo will speak in your voice</p>
+            <p className="text-sm font-semibold text-[#25D366]">Voice uploaded</p>
+            <p className="text-xs text-gray-500 mt-0.5">Your photo will speak in your voice</p>
           </div>
         </div>
       ) : (
         <div className="space-y-4">
           {/* Record option */}
-          <div className="border border-white/10 rounded-2xl p-6">
-            <p className="text-sm font-medium text-zinc-300 mb-5">Record a clip</p>
+          <div className="border border-gray-200 rounded-2xl p-6 bg-white">
+            <p className="text-sm font-medium text-gray-700 mb-5">Record a clip</p>
 
             {/* Waveform */}
             <div className="flex items-center justify-center gap-1 h-10 mb-6">
@@ -166,7 +166,7 @@ export function Step4({ onNext, onBack, addToast }: Step4Props) {
                   className="w-1 rounded-full transition-all duration-100"
                   style={{
                     height: `${h}px`,
-                    backgroundColor: mode === "recording" ? "#d9a016" : "#333",
+                    backgroundColor: mode === "recording" ? "#25D366" : "#e5e7eb",
                   }}
                 />
               ))}
@@ -176,11 +176,11 @@ export function Step4({ onNext, onBack, addToast }: Step4Props) {
               <div className="flex flex-col items-center gap-4">
                 <button
                   onClick={startRecording}
-                  className="w-16 h-16 rounded-full bg-red-500/10 border-2 border-red-500/40 hover:border-red-500/70 hover:bg-red-500/20 transition-all flex items-center justify-center group"
+                  className="w-16 h-16 rounded-full bg-red-50 border-2 border-red-300 hover:border-red-400 hover:bg-red-100 transition-all flex items-center justify-center group"
                 >
                   <div className="w-6 h-6 rounded-full bg-red-500 group-hover:scale-110 transition-transform" />
                 </button>
-                <p className="text-xs text-zinc-600">
+                <p className="text-xs text-gray-400">
                   {mode === "recorded" ? "Record again" : "Tap to record"}
                 </p>
               </div>
@@ -188,17 +188,17 @@ export function Step4({ onNext, onBack, addToast }: Step4Props) {
               <div className="flex flex-col items-center gap-4">
                 <button
                   onClick={stopRecording}
-                  className="w-16 h-16 rounded-full bg-red-500/20 border-2 border-red-500/60 transition-all flex items-center justify-center"
+                  className="w-16 h-16 rounded-full bg-red-100 border-2 border-red-400 transition-all flex items-center justify-center"
                 >
                   <div className="w-5 h-5 rounded bg-red-500" />
                 </button>
-                <p className="text-sm font-mono text-red-400">
+                <p className="text-sm font-mono text-red-500">
                   {elapsed}s / {MAX_SECONDS}s
                 </p>
               </div>
             ) : (
-              <div className="flex items-center justify-center gap-2 text-sm text-zinc-400">
-                <span className="w-4 h-4 border-2 border-zinc-600 border-t-[#d9a016] rounded-full animate-spin" />
+              <div className="flex items-center justify-center gap-2 text-sm text-gray-500">
+                <span className="w-4 h-4 border-2 border-gray-200 border-t-[#25D366] rounded-full animate-spin" />
                 Uploading...
               </div>
             )}
@@ -209,7 +209,7 @@ export function Step4({ onNext, onBack, addToast }: Step4Props) {
                 <button
                   onClick={() => recordedBlob && handleUploadVoice(recordedBlob, "recording.webm")}
                   disabled={isUploading}
-                  className="w-full py-2.5 bg-[#d9a016] text-black font-semibold text-sm rounded-xl hover:bg-[#ecb82a] transition-all disabled:opacity-40"
+                  className="w-full py-2.5 bg-[#25D366] text-white font-semibold text-sm rounded-xl hover:bg-[#1db954] transition-all disabled:opacity-40 shadow-sm shadow-[#25D366]/20"
                 >
                   Use this recording
                 </button>
@@ -218,8 +218,8 @@ export function Step4({ onNext, onBack, addToast }: Step4Props) {
           </div>
 
           {/* Upload option */}
-          <div className="border border-white/10 rounded-2xl p-6">
-            <p className="text-sm font-medium text-zinc-300 mb-3">Or upload a file</p>
+          <div className="border border-gray-200 rounded-2xl p-6 bg-white">
+            <p className="text-sm font-medium text-gray-700 mb-3">Or upload a file</p>
             <input
               ref={fileInputRef}
               type="file"
@@ -230,19 +230,19 @@ export function Step4({ onNext, onBack, addToast }: Step4Props) {
             <button
               onClick={() => fileInputRef.current?.click()}
               disabled={isUploading}
-              className="flex items-center gap-2 px-4 py-2.5 border border-white/10 rounded-xl text-sm text-zinc-400 hover:border-white/20 hover:text-zinc-300 transition-all disabled:opacity-40"
+              className="flex items-center gap-2 px-4 py-2.5 border border-gray-200 rounded-xl text-sm text-gray-600 hover:border-[#25D366]/40 hover:text-[#25D366] transition-all disabled:opacity-40"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
               </svg>
               {uploadedFile ? uploadedFile.name : "Choose audio file"}
             </button>
-            <p className="text-xs text-zinc-600 mt-2">MP3, MP4, OGG, WebM, WAV</p>
+            <p className="text-xs text-gray-400 mt-2">MP3, MP4, OGG, WebM, WAV</p>
           </div>
 
           {/* Studio voice fallback note */}
-          <div className="p-4 bg-zinc-900/40 border border-white/5 rounded-xl">
-            <p className="text-xs text-zinc-500 leading-relaxed">
+          <div className="p-4 bg-gray-50 border border-gray-100 rounded-xl">
+            <p className="text-xs text-gray-500 leading-relaxed">
               Skipping? A professional Studio Voice will be used — it sounds great.
             </p>
           </div>
@@ -253,14 +253,14 @@ export function Step4({ onNext, onBack, addToast }: Step4Props) {
       <div className="mt-8 flex items-center gap-4">
         <button
           onClick={onBack}
-          className="px-6 py-3 border border-white/10 rounded-xl text-sm text-zinc-400 hover:border-white/20 hover:text-zinc-300 transition-all"
+          className="px-6 py-3 border border-gray-200 rounded-xl text-sm text-gray-500 hover:border-gray-300 hover:text-gray-700 transition-all"
         >
           Back
         </button>
         <button
           onClick={onNext}
           disabled={mode === "recording" || mode === "uploading"}
-          className="flex items-center gap-2 px-8 py-3 bg-[#d9a016] text-black font-semibold rounded-xl hover:bg-[#ecb82a] transition-all disabled:opacity-40 disabled:cursor-not-allowed"
+          className="flex items-center gap-2 px-8 py-3 bg-[#25D366] text-white font-semibold rounded-xl hover:bg-[#1db954] transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-md shadow-[#25D366]/20"
         >
           Continue
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

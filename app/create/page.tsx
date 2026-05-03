@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
 import Link from "next/link";
 import { useMemodroom } from "@/lib/context";
 import { Step1 } from "@/components/steps/Step1";
@@ -23,14 +22,6 @@ export default function CreatePage() {
   const { state, setStep } = useMemodroom();
   const { toasts, addToast, removeToast } = useToast();
 
-  // Auto-redirect if orderId exists and status isn't draft
-  useEffect(() => {
-    const orderId = localStorage.getItem("memodroom_order_id");
-    if (orderId && state.step === 1) {
-      // Hydration will handle this — the context reads from localStorage
-    }
-  }, [state.step]);
-
   const goNext = () => {
     if (state.step < 5) setStep((state.step + 1) as 1 | 2 | 3 | 4 | 5);
   };
@@ -46,27 +37,27 @@ export default function CreatePage() {
   const progressPct = ((state.step - 1) / 4) * 100;
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-[#f5f0e8]">
+    <div className="min-h-screen bg-white text-gray-900">
       {/* Header */}
-      <header className="border-b border-white/5 px-6 py-4 flex items-center justify-between">
-        <Link href="/" className="text-sm tracking-[0.2em] uppercase text-zinc-500 hover:text-zinc-300 transition-colors font-medium">
+      <header className="border-b border-gray-100 px-6 py-4 flex items-center justify-between bg-white">
+        <Link href="/" className="text-sm tracking-[0.2em] uppercase text-gray-400 hover:text-gray-600 transition-colors font-medium">
           Memodroom
         </Link>
-        <p className="text-xs text-zinc-600">
+        <p className="text-xs text-gray-400">
           Step {state.step} of {STEPS.length}
         </p>
       </header>
 
       {/* Progress bar */}
-      <div className="h-px bg-white/5 relative">
+      <div className="h-0.5 bg-gray-100 relative">
         <div
-          className="absolute left-0 top-0 h-full bg-[#d9a016] transition-all duration-500 ease-out"
+          className="absolute left-0 top-0 h-full bg-[#25D366] transition-all duration-500 ease-out"
           style={{ width: `${progressPct}%` }}
         />
       </div>
 
       {/* Step indicators */}
-      <div className="border-b border-white/5">
+      <div className="border-b border-gray-100 bg-white">
         <div className="max-w-3xl mx-auto px-6 py-4">
           <div className="flex items-center gap-1">
             {STEPS.map((s, i) => {
@@ -86,10 +77,10 @@ export default function CreatePage() {
                     <div
                       className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-medium shrink-0 transition-all ${
                         isCompleted
-                          ? "bg-[#d9a016] text-black"
+                          ? "bg-[#25D366] text-white"
                           : isCurrent
-                          ? "bg-[#d9a016]/20 border border-[#d9a016]/60 text-[#d9a016]"
-                          : "bg-white/5 border border-white/10 text-zinc-600"
+                          ? "bg-[#25D366]/15 border border-[#25D366]/50 text-[#25D366]"
+                          : "bg-gray-100 border border-gray-200 text-gray-400"
                       }`}
                     >
                       {isCompleted ? (
@@ -102,14 +93,14 @@ export default function CreatePage() {
                     </div>
                     <span
                       className={`text-xs hidden sm:block transition-colors ${
-                        isCurrent ? "text-zinc-300" : isCompleted ? "text-zinc-500" : "text-zinc-700"
+                        isCurrent ? "text-gray-700" : isCompleted ? "text-gray-400" : "text-gray-300"
                       }`}
                     >
                       {s.label}
                     </span>
                   </button>
                   {i < STEPS.length - 1 && (
-                    <div className="flex-1 mx-3 h-px bg-white/8" />
+                    <div className="flex-1 mx-3 h-px bg-gray-100" />
                   )}
                 </div>
               );

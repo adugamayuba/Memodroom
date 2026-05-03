@@ -26,7 +26,6 @@ export function Step5({ onBack, addToast }: Step5Props) {
     setLoading(true);
 
     try {
-      // Save plan first
       const patchRes = await patchOrder(state.orderId, { plan });
       if (!patchRes.success) {
         addToast(patchRes.error || "Failed to save plan. Please try again.");
@@ -35,7 +34,6 @@ export function Step5({ onBack, addToast }: Step5Props) {
 
       dispatch({ type: "SET_PLAN", payload: plan });
 
-      // Create checkout session
       const checkoutRes = await createCheckout(state.orderId);
       if (!checkoutRes.success) {
         addToast(checkoutRes.error || "Checkout failed. Please try again.");
@@ -56,10 +54,10 @@ export function Step5({ onBack, addToast }: Step5Props) {
   return (
     <div className="animate-slide-up">
       <div className="mb-10">
-        <h2 className="font-serif text-3xl font-normal text-[#f5f0e8] mb-2">
+        <h2 className="font-serif text-3xl font-normal text-gray-900 mb-2">
           Choose your plan
         </h2>
-        <p className="text-sm text-zinc-500">One payment. No subscription. No surprises.</p>
+        <p className="text-sm text-gray-500">One payment. No subscription. No surprises.</p>
       </div>
 
       <div className="grid md:grid-cols-3 gap-4 mb-8">
@@ -72,37 +70,37 @@ export function Step5({ onBack, addToast }: Step5Props) {
               onClick={() => setPlan(key)}
               className={`relative text-left rounded-2xl p-6 border transition-all ${
                 isSelected
-                  ? "border-[#d9a016]/60 bg-[#d9a016]/5"
-                  : "border-white/10 hover:border-white/20 bg-zinc-900/20"
+                  ? "border-[#25D366]/50 bg-[#25D366]/5 shadow-md shadow-[#25D366]/10"
+                  : "border-gray-200 hover:border-gray-300 bg-white hover:shadow-sm"
               }`}
             >
               {p.badge && (
                 <div className="absolute -top-3 left-4">
-                  <span className="bg-[#d9a016] text-black text-[10px] font-bold px-2.5 py-1 rounded-full whitespace-nowrap uppercase tracking-wide">
+                  <span className="bg-[#25D366] text-white text-[10px] font-bold px-2.5 py-1 rounded-full whitespace-nowrap uppercase tracking-wide">
                     {p.badge}
                   </span>
                 </div>
               )}
               <div className="flex items-start justify-between mb-4">
                 <div>
-                  <p className="text-xs text-zinc-500 uppercase tracking-widest mb-1">{p.label}</p>
-                  <p className="text-3xl font-serif text-[#f5f0e8]">{p.price}</p>
+                  <p className="text-xs text-gray-400 uppercase tracking-widest mb-1">{p.label}</p>
+                  <p className="text-3xl font-serif text-gray-900">{p.price}</p>
                 </div>
                 <div
                   className={`w-5 h-5 rounded-full border-2 mt-1 transition-all flex items-center justify-center shrink-0 ${
-                    isSelected ? "border-[#d9a016] bg-[#d9a016]" : "border-white/20"
+                    isSelected ? "border-[#25D366] bg-[#25D366]" : "border-gray-300"
                   }`}
                 >
                   {isSelected && (
-                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M2 5l2.5 2.5L8 2" />
                     </svg>
                   )}
                 </div>
               </div>
-              <p className="text-sm text-zinc-400 mb-2">{p.videos}</p>
+              <p className="text-sm text-gray-500 mb-2">{p.videos}</p>
               {p.extras && (
-                <p className="text-xs text-zinc-500 leading-relaxed">{p.extras}</p>
+                <p className="text-xs text-gray-400 leading-relaxed">{p.extras}</p>
               )}
             </button>
           );
@@ -110,8 +108,8 @@ export function Step5({ onBack, addToast }: Step5Props) {
       </div>
 
       {/* Order summary */}
-      <div className="border border-white/8 rounded-2xl p-6 mb-6 bg-zinc-900/20">
-        <p className="text-xs uppercase tracking-widest text-zinc-500 mb-4">Order summary</p>
+      <div className="border border-gray-200 rounded-2xl p-6 mb-6 bg-gray-50">
+        <p className="text-xs uppercase tracking-widest text-gray-400 mb-4 font-medium">Order summary</p>
         <div className="space-y-3">
           <SummaryRow label="Recipient" value={state.recipientName || "—"} />
           <SummaryRow label="Atmosphere" value={STYLE_META[state.style]?.label || state.style} />
@@ -120,29 +118,29 @@ export function Step5({ onBack, addToast }: Step5Props) {
             label="Voice"
             value={state.voiceUploaded ? "Your voice" : "Studio voice"}
           />
-          <div className="pt-3 border-t border-white/8 flex items-center justify-between">
-            <span className="text-sm text-zinc-400">Total</span>
-            <span className="text-lg font-serif text-[#f5f0e8]">{PLAN_META[plan].price}</span>
+          <div className="pt-3 border-t border-gray-200 flex items-center justify-between">
+            <span className="text-sm text-gray-500">Total</span>
+            <span className="text-lg font-serif text-gray-900">{PLAN_META[plan].price}</span>
           </div>
         </div>
       </div>
 
       {/* Trust signals */}
       <div className="mb-6 space-y-3">
-        <div className="flex items-center gap-2.5 text-xs text-zinc-500">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <div className="flex items-center gap-2.5 text-xs text-gray-500">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#25D366" strokeWidth="1.5">
             <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
           </svg>
           100% satisfaction guarantee — if your Memo isn&apos;t stunning, we&apos;ll remake it.
         </div>
-        <div className="flex items-center gap-2.5 text-xs text-zinc-500">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <div className="flex items-center gap-2.5 text-xs text-gray-500">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#25D366" strokeWidth="1.5">
             <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
           </svg>
           Secured by Stripe · Visa · Mastercard · Amex · Apple Pay
         </div>
-        <div className="flex items-center gap-2.5 text-xs text-zinc-500">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <div className="flex items-center gap-2.5 text-xs text-gray-500">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#25D366" strokeWidth="1.5">
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
           Estimated delivery: ~5–10 minutes after payment
@@ -154,18 +152,18 @@ export function Step5({ onBack, addToast }: Step5Props) {
         <button
           onClick={onBack}
           disabled={isCheckingOut}
-          className="px-6 py-3 border border-white/10 rounded-xl text-sm text-zinc-400 hover:border-white/20 hover:text-zinc-300 transition-all disabled:opacity-40"
+          className="px-6 py-3 border border-gray-200 rounded-xl text-sm text-gray-500 hover:border-gray-300 hover:text-gray-700 transition-all disabled:opacity-40"
         >
           Back
         </button>
         <button
           onClick={handleCheckout}
           disabled={isCheckingOut}
-          className="flex-1 flex items-center justify-center gap-2 py-3.5 bg-[#d9a016] text-black font-semibold rounded-xl hover:bg-[#ecb82a] transition-all disabled:opacity-40 disabled:cursor-not-allowed"
+          className="flex-1 flex items-center justify-center gap-2 py-3.5 bg-[#25D366] text-white font-semibold rounded-xl hover:bg-[#1db954] transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-md shadow-[#25D366]/20"
         >
           {isCheckingOut ? (
             <>
-              <span className="w-4 h-4 border-2 border-black/30 border-t-black rounded-full animate-spin" />
+              <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
               Redirecting to payment...
             </>
           ) : (
@@ -185,8 +183,8 @@ export function Step5({ onBack, addToast }: Step5Props) {
 function SummaryRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex items-center justify-between">
-      <span className="text-sm text-zinc-500">{label}</span>
-      <span className="text-sm text-zinc-300">{value}</span>
+      <span className="text-sm text-gray-400">{label}</span>
+      <span className="text-sm text-gray-700">{value}</span>
     </div>
   );
 }

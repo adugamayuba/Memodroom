@@ -44,78 +44,78 @@ const FAQS = [
 
 export default function LandingPage() {
   return (
-    <main className="min-h-screen bg-[#0a0a0a] text-[#f5f0e8]">
+    <main className="min-h-screen bg-white text-gray-900">
       {/* Nav */}
-      <nav className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-6 py-4 border-b border-white/5 bg-[#0a0a0a]/90 backdrop-blur-md">
-        <span className="text-sm tracking-[0.2em] uppercase text-zinc-400 font-medium">
+      <nav className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-6 py-4 border-b border-gray-100 bg-white/90 backdrop-blur-md">
+        <span className="text-sm tracking-[0.2em] uppercase text-gray-400 font-medium">
           Memodroom
         </span>
         <Link
           href="/create"
-          className="text-sm px-5 py-2 bg-[#d9a016] text-black font-semibold rounded-full hover:bg-[#ecb82a] transition-colors"
+          className="text-sm px-5 py-2 bg-[#25D366] text-white font-semibold rounded-full hover:bg-[#1db954] transition-colors"
         >
           Create your Memo
         </Link>
       </nav>
 
       {/* Hero */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center px-6 text-center pt-24">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0a0a0a] pointer-events-none" />
+      <section className="relative min-h-screen flex flex-col items-center justify-center px-6 text-center pt-24 bg-white">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white pointer-events-none" />
 
         <div className="relative z-10 max-w-3xl mx-auto">
-          <p className="text-xs tracking-[0.3em] uppercase text-[#d9a016] mb-6 font-medium">
+          <p className="text-xs tracking-[0.3em] uppercase text-[#25D366] mb-6 font-semibold">
             by Reelin AI
           </p>
-          <h1 className="font-serif text-5xl md:text-7xl font-normal leading-[1.05] text-balance mb-6">
+          <h1 className="font-serif text-5xl md:text-7xl font-normal leading-[1.05] text-balance mb-6 text-gray-900">
             Your Memory,
             <br />
             Directed by AI.
           </h1>
-          <p className="text-lg md:text-xl text-zinc-400 max-w-xl mx-auto mb-10 leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-500 max-w-xl mx-auto mb-10 leading-relaxed">
             Turn a photo into a 4K cinematic video message — in under 10 minutes.
           </p>
           <Link
             href="/create"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-[#d9a016] text-black font-semibold text-base rounded-full hover:bg-[#ecb82a] transition-all hover:scale-[1.02] active:scale-[0.98]"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-[#25D366] text-white font-semibold text-base rounded-full hover:bg-[#1db954] transition-all hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-[#25D366]/20"
           >
             Create Your Memo
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M3 8h10M9 4l4 4-4 4" />
             </svg>
           </Link>
-          <p className="mt-4 text-sm text-zinc-600">No account required · Starts at $14.99</p>
+          <p className="mt-4 text-sm text-gray-400">No account required · Starts at $14.99</p>
         </div>
 
         {/* Decorative gradient orb */}
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full bg-[#d9a016]/5 blur-[120px] pointer-events-none" />
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full bg-[#25D366]/6 blur-[120px] pointer-events-none" />
       </section>
 
       {/* How It Works */}
       <section className="py-28 px-6 max-w-5xl mx-auto">
         <div className="text-center mb-16">
-          <p className="text-xs tracking-[0.3em] uppercase text-zinc-500 mb-3">Process</p>
-          <h2 className="font-serif text-3xl md:text-4xl font-normal">
+          <p className="text-xs tracking-[0.3em] uppercase text-gray-400 mb-3 font-medium">Process</p>
+          <h2 className="font-serif text-3xl md:text-4xl font-normal text-gray-900">
             Three steps. One extraordinary gift.
           </h2>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
           {HOW_IT_WORKS.map(({ step, title, body }) => (
             <div key={step} className="group">
-              <p className="text-[#d9a016] font-mono text-sm mb-4 opacity-70">{step}</p>
-              <h3 className="text-lg font-medium mb-3 text-[#f5f0e8]">{title}</h3>
-              <p className="text-sm text-zinc-500 leading-relaxed">{body}</p>
-              <div className="mt-6 h-px bg-white/5 group-hover:bg-[#d9a016]/20 transition-colors" />
+              <p className="text-[#25D366] font-mono text-sm mb-4 font-semibold">{step}</p>
+              <h3 className="text-lg font-medium mb-3 text-gray-900">{title}</h3>
+              <p className="text-sm text-gray-500 leading-relaxed">{body}</p>
+              <div className="mt-6 h-px bg-gray-100 group-hover:bg-[#25D366]/30 transition-colors" />
             </div>
           ))}
         </div>
       </section>
 
       {/* Pricing */}
-      <section className="py-28 px-6 bg-[#0d0d0d] border-y border-white/5">
+      <section className="py-28 px-6 bg-gray-50 border-y border-gray-100">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
-            <p className="text-xs tracking-[0.3em] uppercase text-zinc-500 mb-3">Pricing</p>
-            <h2 className="font-serif text-3xl md:text-4xl font-normal">
+            <p className="text-xs tracking-[0.3em] uppercase text-gray-400 mb-3 font-medium">Pricing</p>
+            <h2 className="font-serif text-3xl md:text-4xl font-normal text-gray-900">
               One payment. No subscription.
             </h2>
           </div>
@@ -128,29 +128,29 @@ export default function LandingPage() {
                   key={planKey}
                   className={`relative rounded-2xl p-8 border transition-all ${
                     isHighlighted
-                      ? "border-[#d9a016]/50 bg-[#d9a016]/5"
-                      : "border-white/8 bg-white/2 hover:border-white/15"
+                      ? "border-[#25D366]/40 bg-white shadow-lg shadow-[#25D366]/10"
+                      : "border-gray-200 bg-white hover:border-gray-300 hover:shadow-sm"
                   }`}
                 >
                   {plan.badge && (
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                      <span className="bg-[#d9a016] text-black text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap">
+                      <span className="bg-[#25D366] text-white text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap">
                         {plan.badge}
                       </span>
                     </div>
                   )}
-                  <p className="text-xs tracking-widest uppercase text-zinc-500 mb-3">{plan.label}</p>
-                  <p className="text-4xl font-serif font-normal text-[#f5f0e8] mb-1">{plan.price}</p>
-                  <p className="text-sm text-zinc-500 mb-6">{plan.videos}</p>
+                  <p className="text-xs tracking-widest uppercase text-gray-400 mb-3">{plan.label}</p>
+                  <p className="text-4xl font-serif font-normal text-gray-900 mb-1">{plan.price}</p>
+                  <p className="text-sm text-gray-500 mb-6">{plan.videos}</p>
                   {plan.extras && (
-                    <p className="text-sm text-zinc-400 mb-6 leading-relaxed">{plan.extras}</p>
+                    <p className="text-sm text-gray-500 mb-6 leading-relaxed">{plan.extras}</p>
                   )}
                   <Link
                     href="/create"
                     className={`block text-center py-3 rounded-xl text-sm font-semibold transition-all ${
                       isHighlighted
-                        ? "bg-[#d9a016] text-black hover:bg-[#ecb82a]"
-                        : "border border-white/15 text-zinc-300 hover:border-white/30 hover:text-white"
+                        ? "bg-[#25D366] text-white hover:bg-[#1db954]"
+                        : "border border-gray-200 text-gray-600 hover:border-[#25D366] hover:text-[#25D366]"
                     }`}
                   >
                     Get started
@@ -165,31 +165,28 @@ export default function LandingPage() {
       {/* FAQ */}
       <section className="py-28 px-6 max-w-3xl mx-auto">
         <div className="text-center mb-16">
-          <p className="text-xs tracking-[0.3em] uppercase text-zinc-500 mb-3">FAQ</p>
-          <h2 className="font-serif text-3xl md:text-4xl font-normal">Common questions</h2>
+          <p className="text-xs tracking-[0.3em] uppercase text-gray-400 mb-3 font-medium">FAQ</p>
+          <h2 className="font-serif text-3xl md:text-4xl font-normal text-gray-900">Common questions</h2>
         </div>
         <div className="space-y-0">
           {FAQS.map(({ q, a }, i) => (
-            <div
-              key={i}
-              className="py-7 border-b border-white/8 last:border-0"
-            >
-              <p className="font-medium text-[#f5f0e8] mb-3">{q}</p>
-              <p className="text-sm text-zinc-500 leading-relaxed">{a}</p>
+            <div key={i} className="py-7 border-b border-gray-100 last:border-0">
+              <p className="font-medium text-gray-900 mb-3">{q}</p>
+              <p className="text-sm text-gray-500 leading-relaxed">{a}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* Final CTA */}
-      <section className="py-28 px-6 text-center border-t border-white/5">
+      <section className="py-28 px-6 text-center border-t border-gray-100 bg-gray-50">
         <div className="max-w-xl mx-auto">
-          <h2 className="font-serif text-4xl md:text-5xl font-normal mb-6">
+          <h2 className="font-serif text-4xl md:text-5xl font-normal mb-6 text-gray-900">
             Make something unforgettable.
           </h2>
           <Link
             href="/create"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-[#d9a016] text-black font-semibold rounded-full hover:bg-[#ecb82a] transition-all hover:scale-[1.02] active:scale-[0.98]"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-[#25D366] text-white font-semibold rounded-full hover:bg-[#1db954] transition-all hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-[#25D366]/20"
           >
             Create Your Memo
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -200,14 +197,12 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-white/5 py-8 px-6">
+      <footer className="border-t border-gray-100 py-8 px-6 bg-white">
         <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-zinc-600">
-            Memodroom · by Reelin AI
-          </p>
+          <p className="text-sm text-gray-400">Memodroom · by Reelin AI</p>
           <a
             href="mailto:hello@memodroom.com"
-            className="text-sm text-zinc-600 hover:text-zinc-400 transition-colors"
+            className="text-sm text-gray-400 hover:text-gray-600 transition-colors"
           >
             hello@memodroom.com
           </a>
