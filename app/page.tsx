@@ -74,7 +74,7 @@ export default function LandingPage() {
             Directed by AI.
           </h1>
           <p className="text-lg md:text-xl text-gray-500 max-w-xl mx-auto mb-10 leading-relaxed">
-            Turn a photo into a 4K cinematic video message — in under 10 minutes.
+            Turn a photo into a 4K cinematic video message, in under 10 minutes.
           </p>
           <Link
             href="/create"
