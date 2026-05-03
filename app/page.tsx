@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { PLAN_META } from "@/lib/types";
+import { FloatingIcons } from "@/components/ui/FloatingIcons";
 
 const HOW_IT_WORKS = [
   {
@@ -44,28 +45,29 @@ const FAQS = [
 
 export default function LandingPage() {
   return (
-    <main className="min-h-screen bg-white text-gray-900">
+    <main className="min-h-screen bg-[#f2f4f3] text-gray-900">
       {/* Nav */}
-      <nav className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-6 py-4 border-b border-gray-100 bg-white/90 backdrop-blur-md">
+      <nav className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-6 py-4 border-b border-gray-200/60 bg-[#f2f4f3]/90 backdrop-blur-md">
         <span className="text-sm tracking-[0.2em] uppercase text-gray-400 font-medium">
           Memodroom
         </span>
         <Link
           href="/create"
-          className="text-sm px-5 py-2 bg-[#25D366] text-white font-semibold rounded-full hover:bg-[#1db954] transition-colors"
+          className="text-sm px-5 py-2 bg-[#25D366] text-white font-semibold rounded-full hover:bg-[#1db954] transition-colors shadow-sm shadow-[#25D366]/20"
         >
           Create your Memo
         </Link>
       </nav>
 
       {/* Hero */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center px-6 text-center pt-24 bg-white">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white pointer-events-none" />
+      <section className="relative min-h-screen flex flex-col items-center justify-center px-6 text-center pt-24 bg-[#f2f4f3] overflow-hidden">
+        {/* Floating doodle icons */}
+        <FloatingIcons />
 
-        <div className="relative z-10 max-w-3xl mx-auto">
-          <p className="text-xs tracking-[0.3em] uppercase text-[#25D366] mb-6 font-semibold">
-            by Reelin AI
-          </p>
+        {/* Bottom fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#f2f4f3] to-transparent pointer-events-none z-10" />
+
+        <div className="relative z-20 max-w-3xl mx-auto">
           <h1 className="font-serif text-5xl md:text-7xl font-normal leading-[1.05] text-balance mb-6 text-gray-900">
             Your Memory,
             <br />
@@ -76,7 +78,7 @@ export default function LandingPage() {
           </p>
           <Link
             href="/create"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-[#25D366] text-white font-semibold text-base rounded-full hover:bg-[#1db954] transition-all hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-[#25D366]/20"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-[#25D366] text-white font-semibold text-base rounded-full hover:bg-[#1db954] transition-all hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-[#25D366]/25"
           >
             Create Your Memo
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -85,9 +87,6 @@ export default function LandingPage() {
           </Link>
           <p className="mt-4 text-sm text-gray-400">No account required · Starts at $14.99</p>
         </div>
-
-        {/* Decorative gradient orb */}
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full bg-[#25D366]/6 blur-[120px] pointer-events-none" />
       </section>
 
       {/* How It Works */}
@@ -104,14 +103,14 @@ export default function LandingPage() {
               <p className="text-[#25D366] font-mono text-sm mb-4 font-semibold">{step}</p>
               <h3 className="text-lg font-medium mb-3 text-gray-900">{title}</h3>
               <p className="text-sm text-gray-500 leading-relaxed">{body}</p>
-              <div className="mt-6 h-px bg-gray-100 group-hover:bg-[#25D366]/30 transition-colors" />
+              <div className="mt-6 h-px bg-gray-200 group-hover:bg-[#25D366]/30 transition-colors duration-300" />
             </div>
           ))}
         </div>
       </section>
 
       {/* Pricing */}
-      <section className="py-28 px-6 bg-gray-50 border-y border-gray-100">
+      <section className="py-28 px-6 bg-white border-y border-gray-200/60">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <p className="text-xs tracking-[0.3em] uppercase text-gray-400 mb-3 font-medium">Pricing</p>
@@ -128,8 +127,8 @@ export default function LandingPage() {
                   key={planKey}
                   className={`relative rounded-2xl p-8 border transition-all ${
                     isHighlighted
-                      ? "border-[#25D366]/40 bg-white shadow-lg shadow-[#25D366]/10"
-                      : "border-gray-200 bg-white hover:border-gray-300 hover:shadow-sm"
+                      ? "border-[#25D366]/40 bg-[#25D366]/4 shadow-lg shadow-[#25D366]/10"
+                      : "border-gray-200 bg-[#f2f4f3] hover:border-gray-300 hover:shadow-sm"
                   }`}
                 >
                   {plan.badge && (
@@ -150,7 +149,7 @@ export default function LandingPage() {
                     className={`block text-center py-3 rounded-xl text-sm font-semibold transition-all ${
                       isHighlighted
                         ? "bg-[#25D366] text-white hover:bg-[#1db954]"
-                        : "border border-gray-200 text-gray-600 hover:border-[#25D366] hover:text-[#25D366]"
+                        : "border border-gray-200 text-gray-600 bg-white hover:border-[#25D366] hover:text-[#25D366]"
                     }`}
                   >
                     Get started
@@ -170,7 +169,7 @@ export default function LandingPage() {
         </div>
         <div className="space-y-0">
           {FAQS.map(({ q, a }, i) => (
-            <div key={i} className="py-7 border-b border-gray-100 last:border-0">
+            <div key={i} className="py-7 border-b border-gray-200 last:border-0">
               <p className="font-medium text-gray-900 mb-3">{q}</p>
               <p className="text-sm text-gray-500 leading-relaxed">{a}</p>
             </div>
@@ -179,14 +178,14 @@ export default function LandingPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-28 px-6 text-center border-t border-gray-100 bg-gray-50">
+      <section className="py-28 px-6 text-center border-t border-gray-200/60 bg-white">
         <div className="max-w-xl mx-auto">
           <h2 className="font-serif text-4xl md:text-5xl font-normal mb-6 text-gray-900">
             Make something unforgettable.
           </h2>
           <Link
             href="/create"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-[#25D366] text-white font-semibold rounded-full hover:bg-[#1db954] transition-all hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-[#25D366]/20"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-[#25D366] text-white font-semibold rounded-full hover:bg-[#1db954] transition-all hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-[#25D366]/25"
           >
             Create Your Memo
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -197,9 +196,12 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-gray-100 py-8 px-6 bg-white">
-        <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-gray-400">Memodroom · by Reelin AI</p>
+      <footer className="border-t border-gray-200/60 py-8 px-6 bg-[#f2f4f3]">
+        <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6">
+            <p className="text-sm text-gray-500 font-medium">Memodroom</p>
+            <p className="text-xs text-gray-400">A product of Reelin AI Inc.</p>
+          </div>
           <a
             href="mailto:hello@memodroom.com"
             className="text-sm text-gray-400 hover:text-gray-600 transition-colors"

@@ -37,7 +37,7 @@ export default function CreatePage() {
   const progressPct = ((state.step - 1) / 4) * 100;
 
   return (
-    <div className="min-h-screen bg-white text-gray-900">
+    <div className="min-h-screen bg-[#f2f4f3] text-gray-900">
       {/* Header */}
       <header className="border-b border-gray-100 px-6 py-4 flex items-center justify-between bg-white">
         <Link href="/" className="text-sm tracking-[0.2em] uppercase text-gray-400 hover:text-gray-600 transition-colors font-medium">
