@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { MemodroomProvider } from "@/lib/context";
 
@@ -122,6 +123,7 @@ export default function RootLayout({
       </head>
       <body>
         <MemodroomProvider>{children}</MemodroomProvider>
+        <Analytics />
       </body>
     </html>
   );
