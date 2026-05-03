@@ -1,4 +1,9 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
+// Support both variable names — NEXT_PUBLIC_MEMODROOM_API_URL takes priority
+const API_URL = (
+  process.env.NEXT_PUBLIC_MEMODROOM_API_URL ||
+  process.env.NEXT_PUBLIC_API_URL ||
+  ""
+).replace(/\/$/, ""); // strip any trailing slash
 
 export interface ApiResponse<T = Record<string, unknown>> {
   success: boolean;
