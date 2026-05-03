@@ -23,34 +23,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #e8eae9;
-}
-::-webkit-scrollbar-thumb {
-  background: #c5c9c6;
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #9ca3af;
-}
+/* ── Scrollbar ─────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #e8eae9; }
+::-webkit-scrollbar-thumb { background: #c5c9c6; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
 
-/* Focus rings */
-:focus-visible {
-  outline: 2px solid #25D366;
-  outline-offset: 2px;
-}
+/* ── Focus / selection ─────────────────────────────────────────── */
+:focus-visible { outline: 2px solid #25D366; outline-offset: 2px; }
+::selection { background: rgba(37, 211, 102, 0.18); color: #111827; }
 
-/* Selection */
-::selection {
-  background: rgba(37, 211, 102, 0.18);
-  color: #111827;
-}
-
-/* Floating icon animations */
+/* ── Floating icon keyframes (outside @layer so they are NEVER purged) ── */
 @keyframes float1 {
   0%, 100% { transform: translateY(0px); }
   50%       { transform: translateY(-14px); }
@@ -59,20 +42,21 @@ body {
 @keyframes float2 {
   0%, 100% { transform: translateY(0px) rotate(0deg); }
   33%      { transform: translateY(-10px) rotate(6deg); }
-  66%      { transform: translateY(5px) rotate(-4deg); }
+  66%      { transform: translateY(5px)  rotate(-4deg); }
 }
 
 @keyframes float3 {
   0%, 100% { transform: translate(0, 0) rotate(0deg); }
   25%      { transform: translate(6px, -10px) rotate(4deg); }
-  75%      { transform: translate(-5px, 7px) rotate(-3deg); }
+  75%      { transform: translate(-5px, 7px)  rotate(-3deg); }
 }
 
 @keyframes float4 {
   0%, 100% { transform: translateY(0px) scale(1); }
-  50%      { transform: translateY(-8px) scale(1.04); }
+  50%      { transform: translateY(-8px) scale(1.06); }
 }
 
+/* ── Page-level animations ─────────────────────────────────────── */
 @keyframes fadeIn {
   0%   { opacity: 0; }
   100% { opacity: 1; }
@@ -83,19 +67,10 @@ body {
   100% { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes pulse-green {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.3); }
-  50%      { box-shadow: 0 0 0 8px rgba(37, 211, 102, 0); }
-}
+/* Apply as plain classes (not @layer utilities) so they survive purge */
+.animate-fade-in  { animation: fadeIn 0.4s ease-out; }
+.animate-slide-up { animation: slideUp 0.4s ease-out; }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-  .animate-float1 { animation: float1 6s ease-in-out infinite; }
-  .animate-float2 { animation: float2 7s ease-in-out infinite; }
-  .animate-float3 { animation: float3 8s ease-in-out infinite; }
-  .animate-float4 { animation: float4 5s ease-in-out infinite; }
-  .animate-fade-in { animation: fadeIn 0.4s ease-out; }
-  .animate-slide-up { animation: slideUp 0.4s ease-out; }
+  .text-balance { text-wrap: balance; }
 }

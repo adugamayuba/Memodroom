@@ -1,14 +1,21 @@
 "use client";
 
+/* -----------------------------------------------------------------
+   Floating doodle icons for the hero background.
+   Animations are applied via inline styles (not Tailwind class names)
+   so they survive production purging. Keyframes live in globals.css.
+------------------------------------------------------------------ */
+
 interface IconConfig {
   top: string;
   left: string;
   size: number;
   opacity: number;
-  animClass: string;
+  animation: string; /* e.g. "float1 6s ease-in-out infinite" */
   delay: string;
-  rotate?: string;
 }
+
+/* ── SVG icons ─────────────────────────────────────────────────── */
 
 function CameraIcon({ size }: { size: number }) {
   return (
@@ -129,7 +136,7 @@ function SparkleIcon({ size }: { size: number }) {
 function CrownIcon({ size }: { size: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M2 20h20M4 20L4 10l4 4 4-8 4 8 4-4v10" />
+      <path d="M2 20h20M4 20V10l4 4 4-8 4 8 4-4v10" />
     </svg>
   );
 }
@@ -174,7 +181,7 @@ function PhoneIcon({ size }: { size: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
-      <line x1="12" y1="18" x2="12" y2="18" strokeWidth="2.5" strokeLinecap="round" />
+      <line x1="12" y1="18" x2="12.01" y2="18" strokeWidth="2.5" />
     </svg>
   );
 }
@@ -188,58 +195,84 @@ function ClockIcon({ size }: { size: number }) {
   );
 }
 
-const ICONS: Array<IconConfig & { component: React.ComponentType<{ size: number }> }> = [
-  // Top row
-  { component: CameraIcon,   top: "6%",  left: "4%",  size: 30, opacity: 0.1,  animClass: "animate-float1", delay: "0s" },
-  { component: SparkleIcon,  top: "4%",  left: "22%", size: 24, opacity: 0.08, animClass: "animate-float3", delay: "1.2s" },
-  { component: HeartIcon,    top: "8%",  left: "48%", size: 28, opacity: 0.1,  animClass: "animate-float2", delay: "0.5s" },
-  { component: MusicIcon,    top: "5%",  left: "72%", size: 26, opacity: 0.09, animClass: "animate-float1", delay: "2s" },
-  { component: StarIcon,     top: "7%",  left: "90%", size: 28, opacity: 0.1,  animClass: "animate-float3", delay: "0.8s" },
+function ShareIcon({ size }: { size: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="18" cy="5" r="3" />
+      <circle cx="6" cy="12" r="3" />
+      <circle cx="18" cy="19" r="3" />
+      <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+      <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+    </svg>
+  );
+}
 
-  // Upper mid
-  { component: MessageIcon,  top: "22%", left: "2%",  size: 32, opacity: 0.09, animClass: "animate-float2", delay: "1.5s" },
-  { component: DiamondIcon,  top: "19%", left: "17%", size: 26, opacity: 0.08, animClass: "animate-float4", delay: "3s" },
-  { component: PlayIcon,     top: "24%", left: "82%", size: 34, opacity: 0.1,  animClass: "animate-float1", delay: "0.3s" },
-  { component: GiftIcon,     top: "21%", left: "94%", size: 28, opacity: 0.09, animClass: "animate-float3", delay: "2.5s" },
+/* ── Icon registry ──────────────────────────────────────────────── */
+const ICON_COMPONENTS = [
+  CameraIcon, HeartIcon, StarIcon, MicIcon, PlayIcon,
+  GiftIcon, MessageIcon, EnvelopeIcon, FilmIcon, MusicIcon,
+  VideoIcon, SparkleIcon, CrownIcon, DiamondIcon, ImageIcon,
+  ZapIcon, AwardIcon, PhoneIcon, ClockIcon, ShareIcon,
+];
 
-  // Mid
-  { component: MicIcon,      top: "42%", left: "1%",  size: 30, opacity: 0.1,  animClass: "animate-float3", delay: "1s" },
-  { component: CrownIcon,    top: "38%", left: "14%", size: 28, opacity: 0.08, animClass: "animate-float1", delay: "4s" },
-  { component: VideoIcon,    top: "44%", left: "88%", size: 32, opacity: 0.1,  animClass: "animate-float2", delay: "1.8s" },
-  { component: FilmIcon,     top: "40%", left: "73%", size: 30, opacity: 0.09, animClass: "animate-float4", delay: "0.6s" },
+/* ── Layout: 24 icons spread across the hero viewport ───────────── */
+const LAYOUT: IconConfig[] = [
+  // top row
+  { top: "5%",  left: "3%",  size: 34, opacity: 0.2,  animation: "float1 6s ease-in-out infinite",   delay: "0s"    },
+  { top: "4%",  left: "18%", size: 26, opacity: 0.16, animation: "float3 8s ease-in-out infinite",   delay: "1.2s"  },
+  { top: "7%",  left: "36%", size: 30, opacity: 0.18, animation: "float2 7s ease-in-out infinite",   delay: "0.5s"  },
+  { top: "5%",  left: "56%", size: 28, opacity: 0.16, animation: "float4 5s ease-in-out infinite",   delay: "2.1s"  },
+  { top: "6%",  left: "75%", size: 32, opacity: 0.2,  animation: "float1 6.5s ease-in-out infinite", delay: "0.8s"  },
+  { top: "4%",  left: "91%", size: 26, opacity: 0.17, animation: "float3 7.5s ease-in-out infinite", delay: "3s"    },
 
-  // Lower mid
-  { component: EnvelopeIcon, top: "60%", left: "3%",  size: 30, opacity: 0.1,  animClass: "animate-float4", delay: "2.2s" },
-  { component: ZapIcon,      top: "64%", left: "18%", size: 24, opacity: 0.08, animClass: "animate-float2", delay: "1.3s" },
-  { component: AwardIcon,    top: "62%", left: "85%", size: 30, opacity: 0.09, animClass: "animate-float1", delay: "3.5s" },
-  { component: ClockIcon,    top: "58%", left: "95%", size: 26, opacity: 0.08, animClass: "animate-float3", delay: "0.9s" },
+  // upper-mid row
+  { top: "22%", left: "1%",  size: 30, opacity: 0.18, animation: "float2 7s ease-in-out infinite",   delay: "1.5s"  },
+  { top: "20%", left: "14%", size: 26, opacity: 0.15, animation: "float4 5.5s ease-in-out infinite", delay: "2.8s"  },
+  { top: "24%", left: "30%", size: 28, opacity: 0.17, animation: "float1 6s ease-in-out infinite",   delay: "0.3s"  },
+  { top: "21%", left: "63%", size: 32, opacity: 0.18, animation: "float3 8s ease-in-out infinite",   delay: "1.8s"  },
+  { top: "23%", left: "80%", size: 28, opacity: 0.16, animation: "float2 7s ease-in-out infinite",   delay: "0.7s"  },
+  { top: "20%", left: "94%", size: 30, opacity: 0.2,  animation: "float4 5s ease-in-out infinite",   delay: "2.5s"  },
 
-  // Bottom
-  { component: ImageIcon,    top: "78%", left: "6%",  size: 30, opacity: 0.1,  animClass: "animate-float2", delay: "1.7s" },
-  { component: PhoneIcon,    top: "82%", left: "20%", size: 26, opacity: 0.08, animClass: "animate-float1", delay: "2.8s" },
-  { component: StarIcon,     top: "76%", left: "55%", size: 24, opacity: 0.08, animClass: "animate-float3", delay: "0.4s" },
-  { component: HeartIcon,    top: "80%", left: "78%", size: 28, opacity: 0.09, animClass: "animate-float4", delay: "1.6s" },
-  { component: SparkleIcon,  top: "85%", left: "92%", size: 26, opacity: 0.1,  animClass: "animate-float2", delay: "3.2s" },
+  // mid row
+  { top: "43%", left: "0%",  size: 32, opacity: 0.18, animation: "float3 7.5s ease-in-out infinite", delay: "1s"    },
+  { top: "40%", left: "12%", size: 28, opacity: 0.15, animation: "float1 6s ease-in-out infinite",   delay: "3.5s"  },
+  { top: "46%", left: "46%", size: 26, opacity: 0.16, animation: "float2 8s ease-in-out infinite",   delay: "0.6s"  },
+  { top: "42%", left: "72%", size: 30, opacity: 0.18, animation: "float4 5.5s ease-in-out infinite", delay: "1.4s"  },
+  { top: "44%", left: "90%", size: 32, opacity: 0.2,  animation: "float1 6.5s ease-in-out infinite", delay: "2.2s"  },
+
+  // lower-mid row
+  { top: "62%", left: "2%",  size: 28, opacity: 0.18, animation: "float2 7s ease-in-out infinite",   delay: "2s"    },
+  { top: "60%", left: "22%", size: 26, opacity: 0.15, animation: "float3 8s ease-in-out infinite",   delay: "0.9s"  },
+  { top: "65%", left: "58%", size: 30, opacity: 0.17, animation: "float4 5s ease-in-out infinite",   delay: "3.2s"  },
+  { top: "61%", left: "86%", size: 28, opacity: 0.16, animation: "float1 6s ease-in-out infinite",   delay: "1.6s"  },
+
+  // bottom row
+  { top: "80%", left: "5%",  size: 30, opacity: 0.18, animation: "float3 7.5s ease-in-out infinite", delay: "1.7s"  },
+  { top: "82%", left: "25%", size: 26, opacity: 0.15, animation: "float1 6.5s ease-in-out infinite", delay: "2.6s"  },
+  { top: "78%", left: "88%", size: 32, opacity: 0.2,  animation: "float2 7s ease-in-out infinite",   delay: "0.4s"  },
 ];
 
 export function FloatingIcons() {
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none select-none" aria-hidden>
-      {ICONS.map((icon, i) => {
-        const Icon = icon.component;
+    <div
+      className="absolute inset-0 overflow-hidden pointer-events-none select-none"
+      aria-hidden="true"
+    >
+      {LAYOUT.map((cfg, i) => {
+        const Icon = ICON_COMPONENTS[i % ICON_COMPONENTS.length];
         return (
           <div
             key={i}
-            className={`absolute text-[#25D366] ${icon.animClass}`}
+            className="absolute text-[#25D366]"
             style={{
-              top: icon.top,
-              left: icon.left,
-              opacity: icon.opacity,
-              animationDelay: icon.delay,
-              rotate: icon.rotate,
+              top: cfg.top,
+              left: cfg.left,
+              opacity: cfg.opacity,
+              animation: cfg.animation,
+              animationDelay: cfg.delay,
             }}
           >
-            <Icon size={icon.size} />
+            <Icon size={cfg.size} />
           </div>
         );
       })}
