@@ -3,6 +3,7 @@
 import { useState, useRef, useCallback } from "react";
 import { useMemodroom } from "@/lib/context";
 import { uploadPhotos } from "@/lib/api";
+import { track } from "@vercel/analytics";
 
 interface Step2Props {
   onNext: () => void;
@@ -82,6 +83,7 @@ export function Step2({ onNext, onBack, addToast }: Step2Props) {
       }
       dispatch({ type: "SET_PHOTOS", payload: files });
       dispatch({ type: "SET_PHOTO_URLS", payload: res.photoUrls || [] });
+      track("photos_uploaded", { count: files.length });
       onNext();
     } catch (err) {
       addToast(err instanceof Error ? err.message : "Connection error — please try again");

@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useMemodroom } from "@/lib/context";
 import { uploadVoice } from "@/lib/api";
+import { track } from "@vercel/analytics";
 
 interface Step4Props {
   onNext: () => void;
@@ -93,6 +94,7 @@ export function Step4({ onNext, onBack, addToast }: Step4Props) {
         return;
       }
       dispatch({ type: "SET_VOICE_UPLOADED", payload: true });
+      track("voice_uploaded");
       setMode("done");
     } catch (err) {
       addToast(err instanceof Error ? err.message : "Connection error");
@@ -111,6 +113,7 @@ export function Step4({ onNext, onBack, addToast }: Step4Props) {
 
   const handleSkip = () => {
     dispatch({ type: "SET_VOICE_UPLOADED", payload: false });
+    track("voice_skipped");
     onNext();
   };
 

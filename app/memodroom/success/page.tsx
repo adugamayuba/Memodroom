@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { getOrder } from "@/lib/api";
 import { STYLE_META } from "@/lib/types";
+import { track } from "@vercel/analytics";
 import type { Order, OrderStatus } from "@/lib/types";
 
 const MAX_POLL_MS = 20 * 60 * 1000;
@@ -59,6 +60,7 @@ function SuccessContent() {
 
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const startTimeRef = useRef<number>(Date.now());
+  const deliveredFiredRef = useRef(false);
 
   const poll = useCallback(async (id: string, email: string) => {
     try {
@@ -67,6 +69,10 @@ function SuccessContent() {
         setOrder(res.order);
         if (res.order.status === "delivered" || res.order.status === "failed") {
           if (intervalRef.current) clearInterval(intervalRef.current);
+          if (res.order.status === "delivered" && !deliveredFiredRef.current) {
+            deliveredFiredRef.current = true;
+            track("payment_success", { plan: res.order.plan, style: res.order.style, vibe: res.order.vibe });
+          }
         }
       }
     } catch {
@@ -258,6 +264,7 @@ function SuccessContent() {
                     <a
                       href={url}
                       download={`memodroom-${i + 1}.mp4`}
+                      onClick={() => track("video_downloaded", { index: i + 1, plan: order.plan })}
                       className="text-xs text-gray-400 hover:text-[#25D366] flex items-center gap-1.5 transition-colors"
                     >
                       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">

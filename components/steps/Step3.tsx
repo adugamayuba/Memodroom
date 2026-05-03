@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useMemodroom } from "@/lib/context";
 import { patchOrder } from "@/lib/api";
+import { track } from "@vercel/analytics";
 import { VIBE_META, STYLE_META, RELATIONSHIPS } from "@/lib/types";
 import type { Vibe, Style } from "@/lib/types";
 
@@ -69,6 +70,7 @@ export function Step3({ onNext, onBack, addToast }: Step3Props) {
           style,
         },
       });
+      track("personalization_saved", { vibe, style, relationship, hasRecipientEmail: !!recipientEmail.trim(), hasMessage: !!messageText.trim() });
       onNext();
     } catch (err) {
       addToast(err instanceof Error ? err.message : "Connection error — please try again");

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useMemodroom } from "@/lib/context";
 import { patchOrder, createCheckout } from "@/lib/api";
+import { track } from "@vercel/analytics";
 import { PLAN_META, STYLE_META, VIBE_META } from "@/lib/types";
 import type { Plan } from "@/lib/types";
 
@@ -40,6 +41,7 @@ export function Step5({ onBack, addToast }: Step5Props) {
         return;
       }
 
+      track("checkout_started", { plan, price: PLAN_META[plan].price });
       window.location.href = checkoutRes.checkoutUrl;
     } catch (err) {
       addToast(err instanceof Error ? err.message : "Connection error — please try again");
@@ -67,7 +69,7 @@ export function Step5({ onBack, addToast }: Step5Props) {
           return (
             <button
               key={key}
-              onClick={() => setPlan(key)}
+              onClick={() => { setPlan(key); track("plan_selected", { plan: key, price: p.price }); }}
               className={`relative text-left rounded-2xl p-6 border transition-all ${
                 isSelected
                   ? "border-[#25D366]/50 bg-[#25D366]/5 shadow-md shadow-[#25D366]/10"

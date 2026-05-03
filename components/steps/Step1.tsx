@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useMemodroom } from "@/lib/context";
 import { createOrder } from "@/lib/api";
+import { track } from "@vercel/analytics";
 
 interface Step1Props {
   onNext: () => void;
@@ -41,6 +42,7 @@ export function Step1({ onNext, addToast }: Step1Props) {
         return;
       }
       setSender(email.trim(), name.trim());
+      track("order_started", { senderEmail: email.trim() });
       setOrderId(res.orderId);
       onNext();
     } catch (err) {

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { PLAN_META } from "@/lib/types";
 import { FloatingIcons } from "@/components/ui/FloatingIcons";
+import { TrackingLink } from "@/components/ui/TrackingLink";
 
 const HOW_IT_WORKS = [
   {
@@ -76,15 +77,16 @@ export default function LandingPage() {
           <p className="text-lg md:text-xl text-gray-500 max-w-xl mx-auto mb-10 leading-relaxed">
             Turn a photo into a 4K cinematic video message, in under 10 minutes.
           </p>
-          <Link
+          <TrackingLink
             href="/create"
+            eventName="hero_cta_clicked"
             className="inline-flex items-center gap-2 px-8 py-4 bg-[#25D366] text-white font-semibold text-base rounded-full hover:bg-[#1db954] transition-all hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-[#25D366]/25"
           >
             Create Your Memo
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M3 8h10M9 4l4 4-4 4" />
             </svg>
-          </Link>
+          </TrackingLink>
           <p className="mt-4 text-sm text-gray-400">No account required · Starts at $14.99</p>
         </div>
       </section>
@@ -144,8 +146,10 @@ export default function LandingPage() {
                   {plan.extras && (
                     <p className="text-sm text-gray-500 mb-6 leading-relaxed">{plan.extras}</p>
                   )}
-                  <Link
+                  <TrackingLink
                     href="/create"
+                    eventName="pricing_cta_clicked"
+                    eventProps={{ plan: planKey }}
                     className={`block text-center py-3 rounded-xl text-sm font-semibold transition-all ${
                       isHighlighted
                         ? "bg-[#25D366] text-white hover:bg-[#1db954]"
@@ -153,7 +157,7 @@ export default function LandingPage() {
                     }`}
                   >
                     Get started
-                  </Link>
+                  </TrackingLink>
                 </div>
               );
             })}
@@ -183,15 +187,16 @@ export default function LandingPage() {
           <h2 className="font-serif text-4xl md:text-5xl font-normal mb-6 text-gray-900">
             Make something unforgettable.
           </h2>
-          <Link
+          <TrackingLink
             href="/create"
+            eventName="footer_cta_clicked"
             className="inline-flex items-center gap-2 px-8 py-4 bg-[#25D366] text-white font-semibold rounded-full hover:bg-[#1db954] transition-all hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-[#25D366]/25"
           >
             Create Your Memo
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M3 8h10M9 4l4 4-4 4" />
             </svg>
-          </Link>
+          </TrackingLink>
         </div>
       </section>
 
