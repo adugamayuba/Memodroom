@@ -4,7 +4,7 @@
 
 :root {
   --background: #F8F5F0;
-  --foreground: #111827;
+  --foreground: #231D1D;
 }
 
 * {
@@ -31,7 +31,7 @@ body {
 
 /* ── Focus / selection ─────────────────────────────────────────── */
 :focus-visible { outline: 2px solid #FF7B31; outline-offset: 2px; }
-::selection { background: rgba(255, 123, 49, 0.18); color: #111827; }
+::selection { background: rgba(255, 123, 49, 0.18); color: #231D1D; }
 
 /* ── Floating icon keyframes (outside @layer so they are NEVER purged) ── */
 @keyframes float1 {

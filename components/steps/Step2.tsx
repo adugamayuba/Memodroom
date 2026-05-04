@@ -96,7 +96,7 @@ export function Step2({ onNext, onBack, addToast }: Step2Props) {
   return (
     <div className="animate-slide-up">
       <div className="mb-10">
-        <h2 className="font-serif text-3xl font-normal text-gray-900 mb-2">
+        <h2 className="font-serif text-3xl font-normal text-[#231D1D] mb-2">
           Upload your photo
         </h2>
         <p className="text-sm text-gray-500">

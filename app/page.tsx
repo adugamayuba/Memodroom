@@ -46,7 +46,7 @@ const FAQS = [
 
 export default function LandingPage() {
   return (
-    <main className="min-h-screen bg-[#F8F5F0] text-gray-900">
+    <main className="min-h-screen bg-[#F8F5F0] text-[#231D1D]">
       {/* Nav */}
       <nav className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-6 py-4 border-b border-gray-200/60 bg-[#F8F5F0]/90 backdrop-blur-md">
         <span className="text-sm tracking-[0.2em] uppercase text-gray-400 font-medium">
@@ -69,7 +69,7 @@ export default function LandingPage() {
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F8F5F0] to-transparent pointer-events-none z-10" />
 
         <div className="relative z-20 max-w-3xl mx-auto">
-          <h1 className="font-serif text-5xl md:text-7xl font-normal leading-[1.05] text-balance mb-6 text-gray-900">
+          <h1 className="font-serif text-5xl md:text-7xl font-normal leading-[1.05] text-balance mb-6 text-[#231D1D]">
             Your Memory,
             <br />
             Directed by AI.
@@ -95,7 +95,7 @@ export default function LandingPage() {
       <section className="py-28 px-6 max-w-5xl mx-auto">
         <div className="text-center mb-16">
           <p className="text-xs tracking-[0.3em] uppercase text-gray-400 mb-3 font-medium">Process</p>
-          <h2 className="font-serif text-3xl md:text-4xl font-normal text-gray-900">
+          <h2 className="font-serif text-3xl md:text-4xl font-normal text-[#231D1D]">
             Three steps. One extraordinary gift.
           </h2>
         </div>
@@ -103,7 +103,7 @@ export default function LandingPage() {
           {HOW_IT_WORKS.map(({ step, title, body }) => (
             <div key={step} className="group">
               <p className="text-[#FF7B31] font-mono text-sm mb-4 font-semibold">{step}</p>
-              <h3 className="text-lg font-medium mb-3 text-gray-900">{title}</h3>
+              <h3 className="text-lg font-medium mb-3 text-[#231D1D]">{title}</h3>
               <p className="text-sm text-gray-500 leading-relaxed">{body}</p>
               <div className="mt-6 h-px bg-gray-200 group-hover:bg-[#FF7B31]/30 transition-colors duration-300" />
             </div>
@@ -116,7 +116,7 @@ export default function LandingPage() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <p className="text-xs tracking-[0.3em] uppercase text-gray-400 mb-3 font-medium">Pricing</p>
-            <h2 className="font-serif text-3xl md:text-4xl font-normal text-gray-900">
+            <h2 className="font-serif text-3xl md:text-4xl font-normal text-[#231D1D]">
               One payment. No subscription.
             </h2>
           </div>
@@ -141,7 +141,7 @@ export default function LandingPage() {
                     </div>
                   )}
                   <p className="text-xs tracking-widest uppercase text-gray-400 mb-3">{plan.label}</p>
-                  <p className="text-4xl font-serif font-normal text-gray-900 mb-1">{plan.price}</p>
+                  <p className="text-4xl font-serif font-normal text-[#231D1D] mb-1">{plan.price}</p>
                   <p className="text-sm text-gray-500 mb-6">{plan.videos}</p>
                   {plan.extras && (
                     <p className="text-sm text-gray-500 mb-6 leading-relaxed">{plan.extras}</p>
@@ -169,12 +169,12 @@ export default function LandingPage() {
       <section className="py-28 px-6 max-w-3xl mx-auto">
         <div className="text-center mb-16">
           <p className="text-xs tracking-[0.3em] uppercase text-gray-400 mb-3 font-medium">FAQ</p>
-          <h2 className="font-serif text-3xl md:text-4xl font-normal text-gray-900">Common questions</h2>
+          <h2 className="font-serif text-3xl md:text-4xl font-normal text-[#231D1D]">Common questions</h2>
         </div>
         <div className="space-y-0">
           {FAQS.map(({ q, a }, i) => (
             <div key={i} className="py-7 border-b border-gray-200 last:border-0">
-              <p className="font-medium text-gray-900 mb-3">{q}</p>
+              <p className="font-medium text-[#231D1D] mb-3">{q}</p>
               <p className="text-sm text-gray-500 leading-relaxed">{a}</p>
             </div>
           ))}
@@ -184,7 +184,7 @@ export default function LandingPage() {
       {/* Final CTA */}
       <section className="py-28 px-6 text-center border-t border-gray-200/60 bg-white">
         <div className="max-w-xl mx-auto">
-          <h2 className="font-serif text-4xl md:text-5xl font-normal mb-6 text-gray-900">
+          <h2 className="font-serif text-4xl md:text-5xl font-normal mb-6 text-[#231D1D]">
             Make something unforgettable.
           </h2>
           <TrackingLink

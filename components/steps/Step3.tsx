@@ -82,7 +82,7 @@ export function Step3({ onNext, onBack, addToast }: Step3Props) {
   return (
     <div className="animate-slide-up">
       <div className="mb-10">
-        <h2 className="font-serif text-3xl font-normal text-gray-900 mb-2">
+        <h2 className="font-serif text-3xl font-normal text-[#231D1D] mb-2">
           Personalize your Memo
         </h2>
         <p className="text-sm text-gray-500">
@@ -104,7 +104,7 @@ export function Step3({ onNext, onBack, addToast }: Step3Props) {
               if (errors.recipientName) setErrors((p) => ({ ...p, recipientName: undefined }));
             }}
             placeholder="Mom"
-            className={`w-full bg-gray-50 border rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 outline-none transition-all focus:border-[#FF7B31] focus:ring-2 focus:ring-[#FF7B31]/10 focus:bg-white ${
+            className={`w-full bg-gray-50 border rounded-xl px-4 py-3 text-[#231D1D] placeholder-gray-400 outline-none transition-all focus:border-[#FF7B31] focus:ring-2 focus:ring-[#FF7B31]/10 focus:bg-white ${
               errors.recipientName ? "border-red-400" : "border-gray-200"
             }`}
           />
@@ -130,7 +130,7 @@ export function Step3({ onNext, onBack, addToast }: Step3Props) {
               if (errors.recipientEmail) setErrors((p) => ({ ...p, recipientEmail: undefined }));
             }}
             placeholder="recipient@example.com"
-            className={`w-full bg-gray-50 border rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 outline-none transition-all focus:border-[#FF7B31] focus:ring-2 focus:ring-[#FF7B31]/10 focus:bg-white ${
+            className={`w-full bg-gray-50 border rounded-xl px-4 py-3 text-[#231D1D] placeholder-gray-400 outline-none transition-all focus:border-[#FF7B31] focus:ring-2 focus:ring-[#FF7B31]/10 focus:bg-white ${
               errors.recipientEmail ? "border-red-400" : "border-gray-200"
             }`}
           />
@@ -178,7 +178,7 @@ export function Step3({ onNext, onBack, addToast }: Step3Props) {
               }}
               placeholder="You've always been my anchor..."
               rows={4}
-              className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 outline-none transition-all focus:border-[#FF7B31] focus:ring-2 focus:ring-[#FF7B31]/10 focus:bg-white resize-none"
+              className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-[#231D1D] placeholder-gray-400 outline-none transition-all focus:border-[#FF7B31] focus:ring-2 focus:ring-[#FF7B31]/10 focus:bg-white resize-none"
             />
             <span className={`absolute bottom-3 right-3 text-xs ${messageText.length >= 260 ? "text-orange-400" : "text-gray-400"}`}>
               {messageText.length}/280

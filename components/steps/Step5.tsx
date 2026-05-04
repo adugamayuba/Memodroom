@@ -56,7 +56,7 @@ export function Step5({ onBack, addToast }: Step5Props) {
   return (
     <div className="animate-slide-up">
       <div className="mb-10">
-        <h2 className="font-serif text-3xl font-normal text-gray-900 mb-2">
+        <h2 className="font-serif text-3xl font-normal text-[#231D1D] mb-2">
           Choose your plan
         </h2>
         <p className="text-sm text-gray-500">One payment. No subscription. No surprises.</p>
@@ -86,7 +86,7 @@ export function Step5({ onBack, addToast }: Step5Props) {
               <div className="flex items-start justify-between mb-4">
                 <div>
                   <p className="text-xs text-gray-400 uppercase tracking-widest mb-1">{p.label}</p>
-                  <p className="text-3xl font-serif text-gray-900">{p.price}</p>
+                  <p className="text-3xl font-serif text-[#231D1D]">{p.price}</p>
                 </div>
                 <div
                   className={`w-5 h-5 rounded-full border-2 mt-1 transition-all flex items-center justify-center shrink-0 ${
@@ -122,7 +122,7 @@ export function Step5({ onBack, addToast }: Step5Props) {
           />
           <div className="pt-3 border-t border-gray-200 flex items-center justify-between">
             <span className="text-sm text-gray-500">Total</span>
-            <span className="text-lg font-serif text-gray-900">{PLAN_META[plan].price}</span>
+            <span className="text-lg font-serif text-[#231D1D]">{PLAN_META[plan].price}</span>
           </div>
         </div>
       </div>

@@ -121,7 +121,7 @@ export function Step4({ onNext, onBack, addToast }: Step4Props) {
     <div className="animate-slide-up">
       <div className="mb-3">
         <div className="flex items-center justify-between mb-2">
-          <h2 className="font-serif text-3xl font-normal text-gray-900">
+          <h2 className="font-serif text-3xl font-normal text-[#231D1D]">
             Add your voice
           </h2>
           <span className="text-xs text-gray-500 bg-gray-100 border border-gray-200 px-3 py-1 rounded-full">

@@ -23,7 +23,7 @@ function CancelContent() {
         </svg>
       </div>
 
-      <h1 className="font-serif text-3xl font-normal mb-4 text-gray-900">
+      <h1 className="font-serif text-3xl font-normal mb-4 text-[#231D1D]">
         Your order wasn&apos;t completed.
       </h1>
       <p className="text-sm text-gray-500 mb-10 leading-relaxed">
@@ -51,7 +51,7 @@ function CancelContent() {
 
 export default function CancelPage() {
   return (
-    <div className="min-h-screen bg-[#F8F5F0] text-gray-900">
+    <div className="min-h-screen bg-[#F8F5F0] text-[#231D1D]">
       <header className="border-b border-gray-100 px-6 py-4 bg-white">
         <Link href="/" className="text-sm tracking-[0.2em] uppercase text-gray-400 hover:text-gray-600 transition-colors font-medium">
           Memodroom

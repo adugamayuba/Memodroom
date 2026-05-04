@@ -136,7 +136,7 @@ function SuccessContent() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
             </svg>
           </div>
-          <h1 className="font-serif text-3xl mb-3 text-gray-900">Something went wrong</h1>
+          <h1 className="font-serif text-3xl mb-3 text-[#231D1D]">Something went wrong</h1>
           <p className="text-gray-500 text-sm mb-6">
             We couldn&apos;t generate your Memo. Please contact us and we&apos;ll sort it out.
           </p>
@@ -150,9 +150,9 @@ function SuccessContent() {
           <div className="text-center mb-12">
             <p className="text-xs tracking-[0.3em] uppercase text-[#FF7B31] mb-3 font-semibold">Memodroom</p>
             {currentStatus === "delivered" ? (
-              <h1 className="font-serif text-4xl mb-3 text-gray-900">Your Memo is ready.</h1>
+              <h1 className="font-serif text-4xl mb-3 text-[#231D1D]">Your Memo is ready.</h1>
             ) : (
-              <h1 className="font-serif text-4xl mb-3 text-gray-900">
+              <h1 className="font-serif text-4xl mb-3 text-[#231D1D]">
                 {currentStep?.label ?? "Processing your Memo"}
               </h1>
             )}
@@ -205,7 +205,7 @@ function SuccessContent() {
                     )}
                   </div>
                   <div>
-                    <p className={`text-sm font-medium transition-colors ${isDone || isCurrent ? "text-gray-900" : "text-gray-300"}`}>
+                    <p className={`text-sm font-medium transition-colors ${isDone || isCurrent ? "text-[#231D1D]" : "text-gray-300"}`}>
                       {s.label}
                     </p>
                     {isCurrent && (
@@ -243,7 +243,7 @@ function SuccessContent() {
           {/* Videos */}
           {currentStatus === "delivered" && order && (order.videoUrls?.length ?? 0) > 0 && (
             <div className="space-y-6">
-              <h2 className="font-serif text-2xl text-center mb-2 text-gray-900">Your Memo</h2>
+              <h2 className="font-serif text-2xl text-center mb-2 text-[#231D1D]">Your Memo</h2>
               {order.videoUrls.map((url, i) => (
                 <div
                   key={i}
@@ -294,7 +294,7 @@ function SuccessContent() {
 
 export default function SuccessPage() {
   return (
-    <div className="min-h-screen bg-[#F8F5F0] text-gray-900">
+    <div className="min-h-screen bg-[#F8F5F0] text-[#231D1D]">
       <header className="border-b border-gray-100 px-6 py-4 bg-white">
         <Link href="/" className="text-sm tracking-[0.2em] uppercase text-gray-400 hover:text-gray-600 transition-colors font-medium">
           Memodroom

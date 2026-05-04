@@ -55,7 +55,7 @@ export function Step1({ onNext, addToast }: Step1Props) {
   return (
     <div className="animate-slide-up">
       <div className="mb-10">
-        <h2 className="font-serif text-3xl font-normal text-gray-900 mb-2">
+        <h2 className="font-serif text-3xl font-normal text-[#231D1D] mb-2">
           Who is this from?
         </h2>
         <p className="text-sm text-gray-500">
@@ -76,7 +76,7 @@ export function Step1({ onNext, addToast }: Step1Props) {
               if (errors.name) setErrors((prev) => ({ ...prev, name: undefined }));
             }}
             placeholder="Jane"
-            className={`w-full bg-gray-50 border rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 outline-none transition-all focus:border-[#FF7B31] focus:ring-2 focus:ring-[#FF7B31]/10 focus:bg-white ${
+            className={`w-full bg-gray-50 border rounded-xl px-4 py-3 text-[#231D1D] placeholder-gray-400 outline-none transition-all focus:border-[#FF7B31] focus:ring-2 focus:ring-[#FF7B31]/10 focus:bg-white ${
               errors.name ? "border-red-400" : "border-gray-200"
             }`}
             autoFocus
@@ -98,7 +98,7 @@ export function Step1({ onNext, addToast }: Step1Props) {
               if (errors.email) setErrors((prev) => ({ ...prev, email: undefined }));
             }}
             placeholder="jane@example.com"
-            className={`w-full bg-gray-50 border rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 outline-none transition-all focus:border-[#FF7B31] focus:ring-2 focus:ring-[#FF7B31]/10 focus:bg-white ${
+            className={`w-full bg-gray-50 border rounded-xl px-4 py-3 text-[#231D1D] placeholder-gray-400 outline-none transition-all focus:border-[#FF7B31] focus:ring-2 focus:ring-[#FF7B31]/10 focus:bg-white ${
               errors.email ? "border-red-400" : "border-gray-200"
             }`}
           />
