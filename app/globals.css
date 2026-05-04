@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --background: #f2f4f3;
+  --background: #F8F5F0;
   --foreground: #111827;
 }
 
@@ -25,8 +25,8 @@ body {
 
 /* ── Scrollbar ─────────────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #e8eae9; }
-::-webkit-scrollbar-thumb { background: #c5c9c6; border-radius: 3px; }
+::-webkit-scrollbar-track { background: #ede9e3; }
+::-webkit-scrollbar-thumb { background: #d4cfc8; border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
 
 /* ── Focus / selection ─────────────────────────────────────────── */

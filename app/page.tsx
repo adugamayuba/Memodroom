@@ -46,9 +46,9 @@ const FAQS = [
 
 export default function LandingPage() {
   return (
-    <main className="min-h-screen bg-[#f2f4f3] text-gray-900">
+    <main className="min-h-screen bg-[#F8F5F0] text-gray-900">
       {/* Nav */}
-      <nav className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-6 py-4 border-b border-gray-200/60 bg-[#f2f4f3]/90 backdrop-blur-md">
+      <nav className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-6 py-4 border-b border-gray-200/60 bg-[#F8F5F0]/90 backdrop-blur-md">
         <span className="text-sm tracking-[0.2em] uppercase text-gray-400 font-medium">
           Memodroom
         </span>
@@ -61,12 +61,12 @@ export default function LandingPage() {
       </nav>
 
       {/* Hero */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center px-6 text-center pt-24 bg-[#f2f4f3] overflow-hidden">
+      <section className="relative min-h-screen flex flex-col items-center justify-center px-6 text-center pt-24 bg-[#F8F5F0] overflow-hidden">
         {/* Floating doodle icons */}
         <FloatingIcons />
 
         {/* Bottom fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#f2f4f3] to-transparent pointer-events-none z-10" />
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F8F5F0] to-transparent pointer-events-none z-10" />
 
         <div className="relative z-20 max-w-3xl mx-auto">
           <h1 className="font-serif text-5xl md:text-7xl font-normal leading-[1.05] text-balance mb-6 text-gray-900">
@@ -130,7 +130,7 @@ export default function LandingPage() {
                   className={`relative rounded-2xl p-8 border transition-all ${
                     isHighlighted
                       ? "border-[#FF7B31]/40 bg-[#FF7B31]/4 shadow-lg shadow-[#FF7B31]/10"
-                      : "border-gray-200 bg-[#f2f4f3] hover:border-gray-300 hover:shadow-sm"
+                      : "border-gray-200 bg-[#F8F5F0] hover:border-gray-300 hover:shadow-sm"
                   }`}
                 >
                   {plan.badge && (
@@ -201,7 +201,7 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-gray-200/60 py-8 px-6 bg-[#f2f4f3]">
+      <footer className="border-t border-gray-200/60 py-8 px-6 bg-[#F8F5F0]">
         <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6">
             <p className="text-sm text-gray-500 font-medium">Memodroom</p>
