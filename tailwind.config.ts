@@ -11,17 +11,17 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        wa: {
-          50:  "#f0fdf4",
-          100: "#dcfce7",
-          200: "#bbf7d0",
-          300: "#86efac",
-          400: "#4ade80",
-          500: "#25D366",
-          600: "#16a34a",
-          700: "#15803d",
-          800: "#166534",
-          900: "#14532d",
+        brand: {
+          50:  "#fff4ed",
+          100: "#ffe6d4",
+          200: "#ffc9a8",
+          300: "#ffa371",
+          400: "#ff8a4c",
+          500: "#FF7B31",
+          600: "#e86a24",
+          700: "#c4521a",
+          800: "#9c3f14",
+          900: "#7d3311",
         },
       },
       fontFamily: {

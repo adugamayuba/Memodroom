@@ -144,14 +144,14 @@ export function Step4({ onNext, onBack, addToast }: Step4Props) {
       </button>
 
       {mode === "done" ? (
-        <div className="p-6 bg-green-50 border border-[#25D366]/25 rounded-2xl flex items-center gap-4">
-          <div className="w-10 h-10 rounded-full bg-[#25D366]/15 flex items-center justify-center shrink-0">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#25D366" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <div className="p-6 bg-green-50 border border-[#FF7B31]/25 rounded-2xl flex items-center gap-4">
+          <div className="w-10 h-10 rounded-full bg-[#FF7B31]/15 flex items-center justify-center shrink-0">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#FF7B31" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M3 9l5 5 7-9" />
             </svg>
           </div>
           <div>
-            <p className="text-sm font-semibold text-[#25D366]">Voice uploaded</p>
+            <p className="text-sm font-semibold text-[#FF7B31]">Voice uploaded</p>
             <p className="text-xs text-gray-500 mt-0.5">Your photo will speak in your voice</p>
           </div>
         </div>
@@ -169,7 +169,7 @@ export function Step4({ onNext, onBack, addToast }: Step4Props) {
                   className="w-1 rounded-full transition-all duration-100"
                   style={{
                     height: `${h}px`,
-                    backgroundColor: mode === "recording" ? "#25D366" : "#e5e7eb",
+                    backgroundColor: mode === "recording" ? "#FF7B31" : "#e5e7eb",
                   }}
                 />
               ))}
@@ -201,7 +201,7 @@ export function Step4({ onNext, onBack, addToast }: Step4Props) {
               </div>
             ) : (
               <div className="flex items-center justify-center gap-2 text-sm text-gray-500">
-                <span className="w-4 h-4 border-2 border-gray-200 border-t-[#25D366] rounded-full animate-spin" />
+                <span className="w-4 h-4 border-2 border-gray-200 border-t-[#FF7B31] rounded-full animate-spin" />
                 Uploading...
               </div>
             )}
@@ -212,7 +212,7 @@ export function Step4({ onNext, onBack, addToast }: Step4Props) {
                 <button
                   onClick={() => recordedBlob && handleUploadVoice(recordedBlob, "recording.webm")}
                   disabled={isUploading}
-                  className="w-full py-2.5 bg-[#25D366] text-white font-semibold text-sm rounded-xl hover:bg-[#1db954] transition-all disabled:opacity-40 shadow-sm shadow-[#25D366]/20"
+                  className="w-full py-2.5 bg-[#FF7B31] text-white font-semibold text-sm rounded-xl hover:bg-[#e86a24] transition-all disabled:opacity-40 shadow-sm shadow-[#FF7B31]/20"
                 >
                   Use this recording
                 </button>
@@ -233,7 +233,7 @@ export function Step4({ onNext, onBack, addToast }: Step4Props) {
             <button
               onClick={() => fileInputRef.current?.click()}
               disabled={isUploading}
-              className="flex items-center gap-2 px-4 py-2.5 border border-gray-200 rounded-xl text-sm text-gray-600 hover:border-[#25D366]/40 hover:text-[#25D366] transition-all disabled:opacity-40"
+              className="flex items-center gap-2 px-4 py-2.5 border border-gray-200 rounded-xl text-sm text-gray-600 hover:border-[#FF7B31]/40 hover:text-[#FF7B31] transition-all disabled:opacity-40"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
@@ -263,7 +263,7 @@ export function Step4({ onNext, onBack, addToast }: Step4Props) {
         <button
           onClick={onNext}
           disabled={mode === "recording" || mode === "uploading"}
-          className="flex items-center gap-2 px-8 py-3 bg-[#25D366] text-white font-semibold rounded-xl hover:bg-[#1db954] transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-md shadow-[#25D366]/20"
+          className="flex items-center gap-2 px-8 py-3 bg-[#FF7B31] text-white font-semibold rounded-xl hover:bg-[#e86a24] transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-md shadow-[#FF7B31]/20"
         >
           Continue
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

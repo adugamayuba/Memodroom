@@ -76,7 +76,7 @@ export function Step1({ onNext, addToast }: Step1Props) {
               if (errors.name) setErrors((prev) => ({ ...prev, name: undefined }));
             }}
             placeholder="Jane"
-            className={`w-full bg-gray-50 border rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 outline-none transition-all focus:border-[#25D366] focus:ring-2 focus:ring-[#25D366]/10 focus:bg-white ${
+            className={`w-full bg-gray-50 border rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 outline-none transition-all focus:border-[#FF7B31] focus:ring-2 focus:ring-[#FF7B31]/10 focus:bg-white ${
               errors.name ? "border-red-400" : "border-gray-200"
             }`}
             autoFocus
@@ -98,7 +98,7 @@ export function Step1({ onNext, addToast }: Step1Props) {
               if (errors.email) setErrors((prev) => ({ ...prev, email: undefined }));
             }}
             placeholder="jane@example.com"
-            className={`w-full bg-gray-50 border rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 outline-none transition-all focus:border-[#25D366] focus:ring-2 focus:ring-[#25D366]/10 focus:bg-white ${
+            className={`w-full bg-gray-50 border rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 outline-none transition-all focus:border-[#FF7B31] focus:ring-2 focus:ring-[#FF7B31]/10 focus:bg-white ${
               errors.email ? "border-red-400" : "border-gray-200"
             }`}
           />
@@ -113,7 +113,7 @@ export function Step1({ onNext, addToast }: Step1Props) {
         <button
           onClick={handleNext}
           disabled={state.isLoading}
-          className="w-full md:w-auto flex items-center justify-center gap-2 px-8 py-3.5 bg-[#25D366] text-white font-semibold rounded-xl hover:bg-[#1db954] transition-all disabled:opacity-50 disabled:cursor-not-allowed mt-2 shadow-md shadow-[#25D366]/20"
+          className="w-full md:w-auto flex items-center justify-center gap-2 px-8 py-3.5 bg-[#FF7B31] text-white font-semibold rounded-xl hover:bg-[#e86a24] transition-all disabled:opacity-50 disabled:cursor-not-allowed mt-2 shadow-md shadow-[#FF7B31]/20"
         >
           {state.isLoading ? (
             <>

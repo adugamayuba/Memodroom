@@ -25,8 +25,8 @@ export function Toast({ message, onDismiss, duration = 5000 }: ToastProps) {
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
       }`}
     >
-      <div className="bg-white border border-[#25D366]/40 rounded-xl px-4 py-3 shadow-xl shadow-black/8 flex items-start gap-3">
-        <span className="text-[#25D366] mt-0.5 shrink-0">
+      <div className="bg-white border border-[#FF7B31]/40 rounded-xl px-4 py-3 shadow-xl shadow-black/8 flex items-start gap-3">
+        <span className="text-[#FF7B31] mt-0.5 shrink-0">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
             <path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 11.5a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5zm.75-3.75a.75.75 0 0 1-1.5 0V5.25a.75.75 0 0 1 1.5 0v3.5z" />
           </svg>

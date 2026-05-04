@@ -263,7 +263,7 @@ export function FloatingIcons() {
         return (
           <div
             key={i}
-            className="absolute text-[#25D366]"
+            className="absolute text-[#FF7B31]"
             style={{
               top: cfg.top,
               left: cfg.left,

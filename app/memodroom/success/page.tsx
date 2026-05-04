@@ -120,7 +120,7 @@ function SuccessContent() {
     return (
       <div className="text-center py-20">
         <p className="text-gray-500">{error}</p>
-        <Link href="/" className="mt-6 inline-block text-sm text-[#25D366] hover:underline">
+        <Link href="/" className="mt-6 inline-block text-sm text-[#FF7B31] hover:underline">
           Back to home
         </Link>
       </div>
@@ -140,7 +140,7 @@ function SuccessContent() {
           <p className="text-gray-500 text-sm mb-6">
             We couldn&apos;t generate your Memo. Please contact us and we&apos;ll sort it out.
           </p>
-          <a href="mailto:hello@memodroom.com" className="text-sm text-[#25D366] hover:underline">
+          <a href="mailto:hello@memodroom.com" className="text-sm text-[#FF7B31] hover:underline">
             hello@memodroom.com
           </a>
         </div>
@@ -148,7 +148,7 @@ function SuccessContent() {
         <>
           {/* Header */}
           <div className="text-center mb-12">
-            <p className="text-xs tracking-[0.3em] uppercase text-[#25D366] mb-3 font-semibold">Memodroom</p>
+            <p className="text-xs tracking-[0.3em] uppercase text-[#FF7B31] mb-3 font-semibold">Memodroom</p>
             {currentStatus === "delivered" ? (
               <h1 className="font-serif text-4xl mb-3 text-gray-900">Your Memo is ready.</h1>
             ) : (
@@ -168,7 +168,7 @@ function SuccessContent() {
               </div>
               <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-[#25D366] rounded-full transition-all duration-1000 ease-out"
+                  className="h-full bg-[#FF7B31] rounded-full transition-all duration-1000 ease-out"
                   style={{ width: `${progressPct}%` }}
                 />
               </div>
@@ -185,20 +185,20 @@ function SuccessContent() {
                 <div key={s.status} className="flex items-start gap-4 py-4 border-b border-gray-100 last:border-0">
                   <div className="shrink-0 mt-0.5">
                     {isDone && currentStatus === "delivered" ? (
-                      <div className="w-6 h-6 rounded-full bg-[#25D366] flex items-center justify-center">
+                      <div className="w-6 h-6 rounded-full bg-[#FF7B31] flex items-center justify-center">
                         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                           <path d="M2 6l3 3 5-5" />
                         </svg>
                       </div>
                     ) : isDone ? (
-                      <div className="w-6 h-6 rounded-full bg-[#25D366] flex items-center justify-center">
+                      <div className="w-6 h-6 rounded-full bg-[#FF7B31] flex items-center justify-center">
                         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                           <path d="M2 6l3 3 5-5" />
                         </svg>
                       </div>
                     ) : isCurrent ? (
-                      <div className="w-6 h-6 rounded-full border-2 border-[#25D366]/30 flex items-center justify-center">
-                        <div className="w-3 h-3 rounded-full border-2 border-[#25D366]/20 border-t-[#25D366] animate-spin" />
+                      <div className="w-6 h-6 rounded-full border-2 border-[#FF7B31]/30 flex items-center justify-center">
+                        <div className="w-3 h-3 rounded-full border-2 border-[#FF7B31]/20 border-t-[#FF7B31] animate-spin" />
                       </div>
                     ) : (
                       <div className="w-6 h-6 rounded-full border-2 border-gray-200 bg-gray-50" />
@@ -233,7 +233,7 @@ function SuccessContent() {
             <div className="p-4 bg-orange-50 border border-orange-200 rounded-xl mb-6">
               <p className="text-xs text-gray-500 leading-relaxed text-center">
                 Taking a bit longer than usual — check your email, it may already be there.{" "}
-                <a href="mailto:hello@memodroom.com" className="text-[#25D366] hover:underline">
+                <a href="mailto:hello@memodroom.com" className="text-[#FF7B31] hover:underline">
                   Contact support
                 </a>
               </p>
@@ -265,7 +265,7 @@ function SuccessContent() {
                       href={url}
                       download={`memodroom-${i + 1}.mp4`}
                       onClick={() => track("video_downloaded", { index: i + 1, plan: order.plan })}
-                      className="text-xs text-gray-400 hover:text-[#25D366] flex items-center gap-1.5 transition-colors"
+                      className="text-xs text-gray-400 hover:text-[#FF7B31] flex items-center gap-1.5 transition-colors"
                     >
                       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
@@ -303,7 +303,7 @@ export default function SuccessPage() {
       <Suspense
         fallback={
           <div className="flex items-center justify-center py-32">
-            <div className="w-6 h-6 border-2 border-gray-200 border-t-[#25D366] rounded-full animate-spin" />
+            <div className="w-6 h-6 border-2 border-gray-200 border-t-[#FF7B31] rounded-full animate-spin" />
           </div>
         }
       >

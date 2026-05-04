@@ -54,7 +54,7 @@ export default function LandingPage() {
         </span>
         <Link
           href="/create"
-          className="text-sm px-5 py-2 bg-[#25D366] text-white font-semibold rounded-full hover:bg-[#1db954] transition-colors shadow-sm shadow-[#25D366]/20"
+          className="text-sm px-5 py-2 bg-[#FF7B31] text-white font-semibold rounded-full hover:bg-[#e86a24] transition-colors shadow-sm shadow-[#FF7B31]/20"
         >
           Create your Memo
         </Link>
@@ -80,7 +80,7 @@ export default function LandingPage() {
           <TrackingLink
             href="/create"
             eventName="hero_cta_clicked"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-[#25D366] text-white font-semibold text-base rounded-full hover:bg-[#1db954] transition-all hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-[#25D366]/25"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-[#FF7B31] text-white font-semibold text-base rounded-full hover:bg-[#e86a24] transition-all hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-[#FF7B31]/25"
           >
             Create Your Memo
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -102,10 +102,10 @@ export default function LandingPage() {
         <div className="grid md:grid-cols-3 gap-8">
           {HOW_IT_WORKS.map(({ step, title, body }) => (
             <div key={step} className="group">
-              <p className="text-[#25D366] font-mono text-sm mb-4 font-semibold">{step}</p>
+              <p className="text-[#FF7B31] font-mono text-sm mb-4 font-semibold">{step}</p>
               <h3 className="text-lg font-medium mb-3 text-gray-900">{title}</h3>
               <p className="text-sm text-gray-500 leading-relaxed">{body}</p>
-              <div className="mt-6 h-px bg-gray-200 group-hover:bg-[#25D366]/30 transition-colors duration-300" />
+              <div className="mt-6 h-px bg-gray-200 group-hover:bg-[#FF7B31]/30 transition-colors duration-300" />
             </div>
           ))}
         </div>
@@ -129,13 +129,13 @@ export default function LandingPage() {
                   key={planKey}
                   className={`relative rounded-2xl p-8 border transition-all ${
                     isHighlighted
-                      ? "border-[#25D366]/40 bg-[#25D366]/4 shadow-lg shadow-[#25D366]/10"
+                      ? "border-[#FF7B31]/40 bg-[#FF7B31]/4 shadow-lg shadow-[#FF7B31]/10"
                       : "border-gray-200 bg-[#f2f4f3] hover:border-gray-300 hover:shadow-sm"
                   }`}
                 >
                   {plan.badge && (
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                      <span className="bg-[#25D366] text-white text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap">
+                      <span className="bg-[#FF7B31] text-white text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap">
                         {plan.badge}
                       </span>
                     </div>
@@ -152,8 +152,8 @@ export default function LandingPage() {
                     eventProps={{ plan: planKey }}
                     className={`block text-center py-3 rounded-xl text-sm font-semibold transition-all ${
                       isHighlighted
-                        ? "bg-[#25D366] text-white hover:bg-[#1db954]"
-                        : "border border-gray-200 text-gray-600 bg-white hover:border-[#25D366] hover:text-[#25D366]"
+                        ? "bg-[#FF7B31] text-white hover:bg-[#e86a24]"
+                        : "border border-gray-200 text-gray-600 bg-white hover:border-[#FF7B31] hover:text-[#FF7B31]"
                     }`}
                   >
                     Get started
@@ -190,7 +190,7 @@ export default function LandingPage() {
           <TrackingLink
             href="/create"
             eventName="footer_cta_clicked"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-[#25D366] text-white font-semibold rounded-full hover:bg-[#1db954] transition-all hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-[#25D366]/25"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-[#FF7B31] text-white font-semibold rounded-full hover:bg-[#e86a24] transition-all hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-[#FF7B31]/25"
           >
             Create Your Memo
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

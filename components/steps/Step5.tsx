@@ -72,13 +72,13 @@ export function Step5({ onBack, addToast }: Step5Props) {
               onClick={() => { setPlan(key); track("plan_selected", { plan: key, price: p.price }); }}
               className={`relative text-left rounded-2xl p-6 border transition-all ${
                 isSelected
-                  ? "border-[#25D366]/50 bg-[#25D366]/5 shadow-md shadow-[#25D366]/10"
+                  ? "border-[#FF7B31]/50 bg-[#FF7B31]/5 shadow-md shadow-[#FF7B31]/10"
                   : "border-gray-200 hover:border-gray-300 bg-white hover:shadow-sm"
               }`}
             >
               {p.badge && (
                 <div className="absolute -top-3 left-4">
-                  <span className="bg-[#25D366] text-white text-[10px] font-bold px-2.5 py-1 rounded-full whitespace-nowrap uppercase tracking-wide">
+                  <span className="bg-[#FF7B31] text-white text-[10px] font-bold px-2.5 py-1 rounded-full whitespace-nowrap uppercase tracking-wide">
                     {p.badge}
                   </span>
                 </div>
@@ -90,7 +90,7 @@ export function Step5({ onBack, addToast }: Step5Props) {
                 </div>
                 <div
                   className={`w-5 h-5 rounded-full border-2 mt-1 transition-all flex items-center justify-center shrink-0 ${
-                    isSelected ? "border-[#25D366] bg-[#25D366]" : "border-gray-300"
+                    isSelected ? "border-[#FF7B31] bg-[#FF7B31]" : "border-gray-300"
                   }`}
                 >
                   {isSelected && (
@@ -130,19 +130,19 @@ export function Step5({ onBack, addToast }: Step5Props) {
       {/* Trust signals */}
       <div className="mb-6 space-y-3">
         <div className="flex items-center gap-2.5 text-xs text-gray-500">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#25D366" strokeWidth="1.5">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF7B31" strokeWidth="1.5">
             <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
           </svg>
           100% satisfaction guarantee — if your Memo isn&apos;t stunning, we&apos;ll remake it.
         </div>
         <div className="flex items-center gap-2.5 text-xs text-gray-500">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#25D366" strokeWidth="1.5">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF7B31" strokeWidth="1.5">
             <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
           </svg>
           Secured by Stripe · Visa · Mastercard · Amex · Apple Pay
         </div>
         <div className="flex items-center gap-2.5 text-xs text-gray-500">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#25D366" strokeWidth="1.5">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF7B31" strokeWidth="1.5">
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
           Estimated delivery: ~5–10 minutes after payment
@@ -161,7 +161,7 @@ export function Step5({ onBack, addToast }: Step5Props) {
         <button
           onClick={handleCheckout}
           disabled={isCheckingOut}
-          className="flex-1 flex items-center justify-center gap-2 py-3.5 bg-[#25D366] text-white font-semibold rounded-xl hover:bg-[#1db954] transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-md shadow-[#25D366]/20"
+          className="flex-1 flex items-center justify-center gap-2 py-3.5 bg-[#FF7B31] text-white font-semibold rounded-xl hover:bg-[#e86a24] transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-md shadow-[#FF7B31]/20"
         >
           {isCheckingOut ? (
             <>

@@ -32,7 +32,7 @@ function CancelContent() {
 
       <Link
         href={createHref}
-        className="inline-flex items-center gap-2 px-8 py-4 bg-[#25D366] text-white font-semibold rounded-full hover:bg-[#1db954] transition-all hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-[#25D366]/20"
+        className="inline-flex items-center gap-2 px-8 py-4 bg-[#FF7B31] text-white font-semibold rounded-full hover:bg-[#e86a24] transition-all hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-[#FF7B31]/20"
       >
         Back to your Memo
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -60,7 +60,7 @@ export default function CancelPage() {
       <Suspense
         fallback={
           <div className="flex items-center justify-center py-32">
-            <div className="w-6 h-6 border-2 border-gray-200 border-t-[#25D366] rounded-full animate-spin" />
+            <div className="w-6 h-6 border-2 border-gray-200 border-t-[#FF7B31] rounded-full animate-spin" />
           </div>
         }
       >

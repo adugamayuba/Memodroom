@@ -51,7 +51,7 @@ export default function CreatePage() {
       {/* Progress bar */}
       <div className="h-0.5 bg-gray-100 relative">
         <div
-          className="absolute left-0 top-0 h-full bg-[#25D366] transition-all duration-500 ease-out"
+          className="absolute left-0 top-0 h-full bg-[#FF7B31] transition-all duration-500 ease-out"
           style={{ width: `${progressPct}%` }}
         />
       </div>
@@ -77,9 +77,9 @@ export default function CreatePage() {
                     <div
                       className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-medium shrink-0 transition-all ${
                         isCompleted
-                          ? "bg-[#25D366] text-white"
+                          ? "bg-[#FF7B31] text-white"
                           : isCurrent
-                          ? "bg-[#25D366]/15 border border-[#25D366]/50 text-[#25D366]"
+                          ? "bg-[#FF7B31]/15 border border-[#FF7B31]/50 text-[#FF7B31]"
                           : "bg-gray-100 border border-gray-200 text-gray-400"
                       }`}
                     >

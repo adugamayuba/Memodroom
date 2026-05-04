@@ -94,7 +94,7 @@ export function Step3({ onNext, onBack, addToast }: Step3Props) {
         {/* Recipient name */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
-            Who is this for? <span className="text-[#25D366]">*</span>
+            Who is this for? <span className="text-[#FF7B31]">*</span>
           </label>
           <input
             type="text"
@@ -104,7 +104,7 @@ export function Step3({ onNext, onBack, addToast }: Step3Props) {
               if (errors.recipientName) setErrors((p) => ({ ...p, recipientName: undefined }));
             }}
             placeholder="Mom"
-            className={`w-full bg-gray-50 border rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 outline-none transition-all focus:border-[#25D366] focus:ring-2 focus:ring-[#25D366]/10 focus:bg-white ${
+            className={`w-full bg-gray-50 border rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 outline-none transition-all focus:border-[#FF7B31] focus:ring-2 focus:ring-[#FF7B31]/10 focus:bg-white ${
               errors.recipientName ? "border-red-400" : "border-gray-200"
             }`}
           />
@@ -130,7 +130,7 @@ export function Step3({ onNext, onBack, addToast }: Step3Props) {
               if (errors.recipientEmail) setErrors((p) => ({ ...p, recipientEmail: undefined }));
             }}
             placeholder="recipient@example.com"
-            className={`w-full bg-gray-50 border rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 outline-none transition-all focus:border-[#25D366] focus:ring-2 focus:ring-[#25D366]/10 focus:bg-white ${
+            className={`w-full bg-gray-50 border rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 outline-none transition-all focus:border-[#FF7B31] focus:ring-2 focus:ring-[#FF7B31]/10 focus:bg-white ${
               errors.recipientEmail ? "border-red-400" : "border-gray-200"
             }`}
           />
@@ -151,8 +151,8 @@ export function Step3({ onNext, onBack, addToast }: Step3Props) {
                 onClick={() => setRelationship(r)}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                   relationship === r
-                    ? "bg-[#25D366] text-white shadow-sm shadow-[#25D366]/20"
-                    : "border border-gray-200 text-gray-600 hover:border-[#25D366]/40 hover:text-[#25D366]"
+                    ? "bg-[#FF7B31] text-white shadow-sm shadow-[#FF7B31]/20"
+                    : "border border-gray-200 text-gray-600 hover:border-[#FF7B31]/40 hover:text-[#FF7B31]"
                 }`}
               >
                 {r}
@@ -178,7 +178,7 @@ export function Step3({ onNext, onBack, addToast }: Step3Props) {
               }}
               placeholder="You've always been my anchor..."
               rows={4}
-              className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 outline-none transition-all focus:border-[#25D366] focus:ring-2 focus:ring-[#25D366]/10 focus:bg-white resize-none"
+              className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 outline-none transition-all focus:border-[#FF7B31] focus:ring-2 focus:ring-[#FF7B31]/10 focus:bg-white resize-none"
             />
             <span className={`absolute bottom-3 right-3 text-xs ${messageText.length >= 260 ? "text-orange-400" : "text-gray-400"}`}>
               {messageText.length}/280
@@ -200,11 +200,11 @@ export function Step3({ onNext, onBack, addToast }: Step3Props) {
                   onClick={() => setVibe(key)}
                   className={`text-left px-4 py-3.5 rounded-xl border transition-all ${
                     vibe === key
-                      ? "border-[#25D366]/50 bg-[#25D366]/5 shadow-sm"
+                      ? "border-[#FF7B31]/50 bg-[#FF7B31]/5 shadow-sm"
                       : "border-gray-200 hover:border-gray-300"
                   }`}
                 >
-                  <p className={`font-medium text-sm ${vibe === key ? "text-[#25D366]" : "text-gray-700"}`}>
+                  <p className={`font-medium text-sm ${vibe === key ? "text-[#FF7B31]" : "text-gray-700"}`}>
                     {meta.label}
                   </p>
                   <p className="text-xs text-gray-400 mt-0.5">{meta.description}</p>
@@ -227,12 +227,12 @@ export function Step3({ onNext, onBack, addToast }: Step3Props) {
                   onClick={() => setStyle(key)}
                   className={`text-left px-4 py-4 rounded-xl border transition-all ${
                     style === key
-                      ? "border-[#25D366]/50 bg-[#25D366]/5 shadow-sm"
+                      ? "border-[#FF7B31]/50 bg-[#FF7B31]/5 shadow-sm"
                       : "border-gray-200 hover:border-gray-300"
                   }`}
                 >
                   <span className="text-lg mb-2 block">{meta.icon}</span>
-                  <p className={`font-medium text-sm ${style === key ? "text-[#25D366]" : "text-gray-700"}`}>
+                  <p className={`font-medium text-sm ${style === key ? "text-[#FF7B31]" : "text-gray-700"}`}>
                     {meta.label}
                   </p>
                   <p className="text-xs text-gray-400 mt-0.5">{meta.description}</p>
@@ -254,7 +254,7 @@ export function Step3({ onNext, onBack, addToast }: Step3Props) {
         <button
           onClick={handleNext}
           disabled={state.isLoading}
-          className="flex items-center gap-2 px-8 py-3 bg-[#25D366] text-white font-semibold rounded-xl hover:bg-[#1db954] transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-md shadow-[#25D366]/20"
+          className="flex items-center gap-2 px-8 py-3 bg-[#FF7B31] text-white font-semibold rounded-xl hover:bg-[#e86a24] transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-md shadow-[#FF7B31]/20"
         >
           {state.isLoading ? (
             <>

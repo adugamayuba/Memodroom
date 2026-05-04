@@ -112,10 +112,10 @@ export function Step2({ onNext, onBack, addToast }: Step2Props) {
         onClick={() => files.length < MAX_FILES && inputRef.current?.click()}
         className={`relative border-2 border-dashed rounded-2xl p-10 text-center transition-all cursor-pointer ${
           isDragging
-            ? "border-[#25D366] bg-[#25D366]/5"
+            ? "border-[#FF7B31] bg-[#FF7B31]/5"
             : files.length >= MAX_FILES
             ? "border-gray-200 cursor-not-allowed opacity-50"
-            : "border-gray-200 hover:border-[#25D366]/50 hover:bg-gray-50"
+            : "border-gray-200 hover:border-[#FF7B31]/50 hover:bg-gray-50"
         }`}
       >
         <input
@@ -139,7 +139,7 @@ export function Step2({ onNext, onBack, addToast }: Step2Props) {
             <p className="text-xs text-gray-400 mt-1">JPEG, PNG, WebP · Up to 3 photos</p>
           </div>
           {files.length > 0 && (
-            <span className="text-xs font-semibold text-[#25D366] bg-[#25D366]/10 px-3 py-1 rounded-full">
+            <span className="text-xs font-semibold text-[#FF7B31] bg-[#FF7B31]/10 px-3 py-1 rounded-full">
               {files.length}/{MAX_FILES} selected
             </span>
           )}
@@ -168,7 +168,7 @@ export function Step2({ onNext, onBack, addToast }: Step2Props) {
               />
               {i === 0 && (
                 <div className="absolute bottom-0 left-0 right-0 bg-white/90 backdrop-blur-sm px-2 py-1.5">
-                  <p className="text-[10px] text-[#25D366] font-semibold text-center leading-tight">
+                  <p className="text-[10px] text-[#FF7B31] font-semibold text-center leading-tight">
                     Main photo — AI avatar
                   </p>
                 </div>
@@ -196,7 +196,7 @@ export function Step2({ onNext, onBack, addToast }: Step2Props) {
       {/* Upload progress */}
       {uploadProgress && (
         <div className="mt-4 flex items-center gap-3 text-sm text-gray-500">
-          <span className="w-4 h-4 border-2 border-gray-200 border-t-[#25D366] rounded-full animate-spin" />
+          <span className="w-4 h-4 border-2 border-gray-200 border-t-[#FF7B31] rounded-full animate-spin" />
           Uploading your photos...
         </div>
       )}
@@ -212,7 +212,7 @@ export function Step2({ onNext, onBack, addToast }: Step2Props) {
         <button
           onClick={handleNext}
           disabled={state.isLoading || files.length === 0}
-          className="flex items-center gap-2 px-8 py-3 bg-[#25D366] text-white font-semibold rounded-xl hover:bg-[#1db954] transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-md shadow-[#25D366]/20"
+          className="flex items-center gap-2 px-8 py-3 bg-[#FF7B31] text-white font-semibold rounded-xl hover:bg-[#e86a24] transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-md shadow-[#FF7B31]/20"
         >
           {state.isLoading ? (
             <>
